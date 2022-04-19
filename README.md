@@ -1,2 +1,1 @@
-# bloktech
-School assignment: front-end and back-end
+<p> School project: </p>
