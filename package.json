@@ -1,0 +1,27 @@
+{
+  "name": "bloktech",
+  "version": "1.0.0",
+  "description": "Package for blocktech",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HanArchives/bloktech.git"
+  },
+  "author": "Han Ossef",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HanArchives/bloktech/issues"
+  },
+  "homepage": "https://github.com/HanArchives/bloktech#readme",
+  "dependencies": {
+    "camelcase": "^6.3.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
