@@ -12,7 +12,7 @@
     "url": "git+https://github.com/HanArchives/bloktech.git"
   },
   "author": "Han Ossef",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/HanArchives/bloktech/issues"
   },
