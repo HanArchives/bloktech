@@ -175,7 +175,7 @@ label:active {
   display: flex;
   flex-direction: column;
   font-size: .875rem;
-  height: 40rem;
+  height: 30rem;
   max-height: 40rem;
   overflow: hidden;
   position: relative;
