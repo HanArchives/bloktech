@@ -1,5 +1,4 @@
-/* Rewrite these variables to let/const. 
-	If you want, you can change the string syntax to template literals */
+// Menu button
 const openButton = document.querySelector('.open-info');
 const closeButton = document.querySelector('.close-info');
 const menu = document.querySelector('nav');
@@ -15,3 +14,11 @@ const openMenu = () => {
 };
 
 openButton.addEventListener('click', openMenu);
+
+// Select all
+document.getElementById('select-all').onclick = function () {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  for (const checkbox of checkboxes) {
+    checkbox.checked = this.checked;
+  }
+};
