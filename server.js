@@ -24,7 +24,21 @@ app.get('/profile', function (req, res) {
   res.render('pages/profile', {
     // image: '',
     name: 'Charles',
-    about: 'Charles is a fluffo doggo',
+    about: 'Charles is a fluffo doggo.',
+  });
+});
+
+// size page render
+app.get('/size', function (req, res) {
+  res.render('pages/size');
+});
+
+// Dummy page render                                ///// DELETE LATER
+app.get('/dummy', function (req, res) {
+  res.render('pages/dummy', {
+    title: 'Gender?',
+    name: 'Charles',
+    about: 'Fluffy doggo',
   });
 });
 
@@ -32,8 +46,3 @@ app.get('/profile', function (req, res) {
 app.use((req, res) => {
   res.status(404).send('Error 404: File not found');
 });
-
-// // index page
-// app.get('/index/', (req, res) => {
-//   res.render('pages/index', { title: 'test????', message: 'test test test' });
-// });

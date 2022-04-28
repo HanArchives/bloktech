@@ -5,13 +5,12 @@
 
 	<body>
 		<%- include('../components/header'); %>
-
 			<main>
 				<%- include('../partials/questionnaire'); %>
+					<%- include('../partials/loading'); %>
+						<%- include('../partials/dog-profile'); %>
 			</main>
-
 			<%- include('../components/footer'); %>
-
 				<script src="scripts/script.js"></script>
 	</body>
 

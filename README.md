@@ -1,4 +1,4 @@
-# PawDoption
+# PawDoption: WORK IN PROGRESS
 
 ## About this project
 
@@ -20,7 +20,7 @@ npm install
 ```
 nodemon index.js
 ```
-4. 
+4. Localhost
 ```
 Go to localhost:3000 in your browser
 ```
@@ -43,7 +43,7 @@ npm -v #
 ## Database
 
 ## Documentation
-wiki
+Chouckout my wiki for full doumentation and research
 
 ## License
 
