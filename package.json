@@ -19,6 +19,7 @@
   "homepage": "https://github.com/HanArchives/bloktech#readme",
   "dependencies": {
     "camelcase": "^6.3.0",
+    "ejs": "^3.1.7",
     "express": "^4.17.3",
     "lodash": "^4.17.21"
   },
