@@ -19,7 +19,8 @@
   "homepage": "https://github.com/HanArchives/bloktech#readme",
   "dependencies": {
     "camelcase": "^6.3.0",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
