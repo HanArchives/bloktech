@@ -1,4 +1,6 @@
-// Menu button
+/////////////////
+// Menu Button //
+/////////////////
 const openButton = document.querySelector('.open-info');
 const closeButton = document.querySelector('.close-info');
 const menu = document.querySelector('nav');
@@ -6,39 +8,35 @@ const menu = document.querySelector('nav');
 const closeMenu = () => {
   menu.classList.remove('is-open');
 };
-
 closeButton.addEventListener('click', closeMenu);
 
 const openMenu = () => {
   menu.classList.add('is-open');
 };
-
 openButton.addEventListener('click', openMenu);
 
-// Select all
-// document.getElementById('select-all').onclick = function () {
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-//   for (const checkbox of checkboxes) {
-//     checkbox.checked = this.checked;
-//   }
-// };
+////////////////
+// Select All //
+////////////////
+const selectButtonOne = document.querySelector('.select-all-one');
+const selectButtonTwo = document.querySelector('.select-all-two');
+const selectButtonThree = document.querySelector('.select-all-three');
 
-// Select All
-const x = document.querySelector('.select-all');
-
-x.addEventListener('click', () => {
-  y('.question-1 input[type="checkbox"]');
+selectButtonOne.addEventListener('click', () => {
+  checkAll('.question-1 input[type="checkbox"]'); //parameter die je mee geeft aan functie checkAll
 });
 
-function y(selector) {
-  const checkboxes = document.querySelectorAll(selector);
+selectButtonTwo.addEventListener('click', () => {
+  checkAll('.question-2 input[type="checkbox"]'); //parameter die je mee geeft aan functie checkAll
+});
+
+selectButtonThree.addEventListener('click', () => {
+  checkAll('.question-3 input[type="checkbox"]'); //parameter die je mee geeft aan functie checkAll
+});
+
+function checkAll(selector) {
+  const checkboxes = document.querySelectorAll(selector); //variabel checboxes heeft parameter selector. Dus selecteerd alles
   for (const checkbox of checkboxes) {
-    checkbox.checked = !checkbox.checked;
+    checkbox.checked = !checkbox.checked; //! betekend het omgekeerde van true/false dit zorgt ervoor dat het allemaal selecteerd en deselecteerd
   }
 }
-
-// y('.question-1 input[type="checkbox"]');
-// y('.question-2 input[type="checkbox"]');
-// y('.question-3 input[type="checkbox"]');
-
-// x.addEventListener('click', y);

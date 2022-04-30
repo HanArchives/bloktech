@@ -13,12 +13,12 @@
   --color-primary: #000;
 	--color-secondary: #fff;
   --color-menu: rosybrown;
-	--bg-color: linear-gradient(rgb(250, 198, 225), rgb(166, 192, 249));
+	--bg-color: linear-gradient(rgb(63,153,227), rgba(248,145,86,255));
   --bg-color-reverse: linear-gradient(rgb(166, 192, 249), rgb(250, 198, 225));
   --bg-color-secondary: linear-gradient(rgb(254, 255, 169),rgb(81, 160, 154), rgb(16, 106, 111)); 
-  --bg-color-menu: royalblue;
-  --bg-color-button: orange;
-  --bg-color-button-secondary: orangered;
+  --bg-color-menu: rgba(105,156,252,255);
+  --bg-color-button: #f89156;
+  --bg-color-button-secondary: #3f99e3;
 }
 
 /*****************/
@@ -142,10 +142,31 @@ footer {
   display: flex;
   flex-direction: row;
 }
+.questionnaire ul li button {
+  background-color: var(--bg-color-button);
+  box-shadow: 0px 8px 15px rgba(3, 160, 92, 0.3);
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+}
+
+.questionnaire ul li button:hover,
+.questionnaire ul li button:active,
+.questionnaire ul li button:focus {
+  background-color: var(--bg-color-menu);
+}
+
+.questionnaire ul li button:active {
+  box-shadow:inset 2px 2px 2px 2px royalblue;
+}
 
 label {
   background-color: var(--bg-color-button);
   border-radius: 15px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  color: white;
   cursor: pointer;
   display: block;
   margin: 10px;
@@ -155,8 +176,8 @@ label {
 
 label:before {
   display: block;
-  transition-duration: 0.4s;
-  transform: scale(0);
+  /* transition-duration: 0.4s; */
+  /* transform: scale(0); */
 }
 
 li input {
@@ -165,10 +186,12 @@ li input {
 
 :checked + label {
   background-color: var(--bg-color-button-secondary);
+  box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3), inset 2px 2px 2px 2px royalblue;
+  /* border: #000 solid; */
 }
 
 :checked + label img {
-  transform: scale(0.9);
+  /* transform: scale(0.9); */
   z-index: -1;
 }
 
@@ -176,6 +199,11 @@ label:hover,
 label:focus,
 label:active {
   background-color: var(--bg-color-menu);
+}
+
+label:active {
+  box-shadow:inset 2px 2px 2px 2px royalblue;
+  /* margin-top: 5px; */
 }
 
 /**************/
