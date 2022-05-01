@@ -25,6 +25,9 @@ app.get('/profile', function (req, res) {
     // image: '',
     name: 'Charles',
     about: 'Charles is a fluffo doggo.',
+    age: '2',
+    gender: 'Male',
+    size: 'Medium',
   });
 });
 
@@ -33,12 +36,10 @@ app.get('/size', function (req, res) {
   res.render('pages/size');
 });
 
-// Dummy page render                                ///// DELETE LATER
+//Dummy page render                                ///// DELETE LATER
 app.get('/dummy', function (req, res) {
   res.render('pages/dummy', {
     title: 'Gender?',
-    name: 'Charles',
-    about: 'Fluffy doggo',
   });
 });
 

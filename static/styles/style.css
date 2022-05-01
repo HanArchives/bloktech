@@ -107,8 +107,8 @@ footer {
 }
 
 .questionnaire img {
-  height: auto;
-  width: 100px;
+  height: 120px;
+  width: auto;
 }
 
 .questionnaire ul {
@@ -144,22 +144,27 @@ footer {
 }
 .questionnaire ul li button {
   background-color: var(--bg-color-button);
-  box-shadow: 0px 8px 15px rgba(3, 160, 92, 0.3);
+  box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3);
   border-radius: 15px;
   border: none;
+  color: var(--color-secondary);
   cursor: pointer;
+  font-family: "spoof", Arial, Helvetica, sans-serif;
   padding: 1rem;
   width: 100%;
 }
 
-.questionnaire ul li button:hover,
+.questionnaire ul li button:hover {
+  background-color: #fa7a2f;
+}
+
 .questionnaire ul li button:active,
 .questionnaire ul li button:focus {
-  background-color: var(--bg-color-menu);
+  box-shadow: none;
 }
 
 .questionnaire ul li button:active {
-  box-shadow:inset 2px 2px 2px 2px royalblue;
+  box-shadow:inset 2px 2px 2px 2px rgb(154, 89, 40);
 }
 
 label {
@@ -260,6 +265,15 @@ label:active {
   justify-content: space-between;
 }
 
+.dog-profile__content div ul {
+  list-style-type: none;
+}
+
+
+/* .dog-profile__content div ul li span {
+  font-weight: bold;
+} */
+
 .dog-profile__content h2 {
   background-color: rosybrown;
   border-radius: 15px;
@@ -276,20 +290,27 @@ label:active {
 
 .dog-profile__content button {
   background-color: var(--bg-color-button);
-  border-radius: 16px;
-  border-width: 0 0 4px;
+  box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3);
+  border-radius: 15px;
+  border: none;
   color: var(--color-secondary);
   cursor: pointer;
+  font-family: "spoof", Arial, Helvetica, sans-serif;
   padding: 1rem;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .dog-profile__content button:hover {
-  background-color: var(--bg-color-menu) ;
+  background-color: #fa7a2f;
 }
 
+.dog-profile__content button:active,
+.dog-profile__content button:focus {
+  box-shadow: none;}
+
 .dog-profile__content button:active {
-  background-color: var(--bg-color-button-secondary);
+  box-shadow:inset 2px 2px 2px 2px rgb(154, 89, 40);
 }
 
 /***************/
@@ -361,3 +382,4 @@ label:active {
   transform: translateY(-150%);
   width: 50px;
 }
+

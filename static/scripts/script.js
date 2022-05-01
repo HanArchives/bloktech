@@ -38,5 +38,30 @@ function checkAll(selector) {
   const checkboxes = document.querySelectorAll(selector); //variabel checboxes heeft parameter selector. Dus selecteerd alles
   for (const checkbox of checkboxes) {
     checkbox.checked = !checkbox.checked; //! betekend het omgekeerde van true/false dit zorgt ervoor dat het allemaal selecteerd en deselecteerd
+    //checkbox.checked = this.checked;
   }
 }
+
+/////////
+
+// function check(checked = true) {
+//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+//   checkboxes.forEach((checkbox) => {
+//     checkbox.checked = checked;
+//   });
+// }
+
+// const selectButtonOne = document.querySelector('.select-all-one');
+// const selectButtonTwo = document.querySelector('.select-all-two');
+// const selectButtonThree = document.querySelector('.select-all-three');
+// btn.onclick = checkAll;
+
+// function checkAll() {
+//   check();
+//   this.onclick = uncheckAll;
+// }
+
+// function uncheckAll() {
+//   check(false);
+//   this.onclick = checkAll;
+// }
