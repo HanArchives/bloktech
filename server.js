@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const matches = require('./data/matches');
+let url = require('url'); // hierdoor kan de URL uitgelezen worden http://localhost:3000/profile?dogID=2
+//const { identity } = require('lodash');
 
 // port 3000
 app.listen(port, () => {
@@ -8,38 +11,29 @@ app.listen(port, () => {
 });
 
 // Middleware
-app.use(express.static('static')); // show static files on localhost:3000
+app.use(express.static('static')); // show static files on localhost
 app.set('view engine', 'ejs'); // to use ejs
 app.set('views, view');
 
 // index page render
 app.get('/index', function (req, res) {
-  res.render('pages/index', {
-    title: 'Gender?',
-  });
+  res.render('pages/index');
+  // res.render('pages/index', {
+  //   title: 'Gender?',
+  // });
 });
 
 // profile page render
 app.get('/profile', function (req, res) {
+  let q = url.parse(req.url, true).query;
+  // default waarde geven
+  if (q.dogID == null) {
+    q.dogID = 2;
+  }
+
   res.render('pages/profile', {
-    // image: '',
-    name: 'Charles',
-    about: 'Charles is a fluffo doggo.',
-    age: '2',
-    gender: 'Male',
-    size: 'Medium',
-  });
-});
-
-// size page render
-app.get('/size', function (req, res) {
-  res.render('pages/size');
-});
-
-//Dummy page render                                ///// DELETE LATER
-app.get('/dummy', function (req, res) {
-  res.render('pages/dummy', {
-    title: 'Gender?',
+    matches: matches,
+    dogID: q.dogID,
   });
 });
 

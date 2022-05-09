@@ -17,7 +17,7 @@ openButton.addEventListener('click', openMenu);
 
 ////////////////
 // Select All //
-// ////////////////
+////////////////
 const selectButtonOne = document.querySelector('.select-all-one');
 const selectButtonTwo = document.querySelector('.select-all-two');
 const selectButtonThree = document.querySelector('.select-all-three');
@@ -41,24 +41,3 @@ function checkAll(selector) {
     //checkbox.checked = this.checked;
   }
 }
-
-/////////
-// function check(checked = true) {
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-//   checkboxes.forEach((checkbox) => {
-//     checkbox.checked = checked;
-//   });
-// }
-
-// function checkAll() {
-//   select();
-//   this.onclick = uncheckAll;
-// }
-
-// function uncheckAll() {
-//   select(false);
-//   this.onclick = checkAll;
-// }
-
-// const btn = document.querySelector('.select-all-one');
-// btn.onclick = checkAll;
