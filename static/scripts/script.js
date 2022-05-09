@@ -41,3 +41,19 @@ function checkAll(selector) {
     //checkbox.checked = this.checked;
   }
 }
+
+///////////////////////////////////////
+// Progresive enhancement/disclosure //
+///////////////////////////////////////
+const buttonNextQuestionAge = document.getElementById('next-age-question');
+const buttonNextQuestionSize = document.getElementById('next-size-question');
+const questionTwo = document.getElementById('question-two');
+const questionThree = document.getElementById('question-three');
+
+buttonNextQuestionAge.addEventListener('click', () => {
+  questionTwo.style.display = 'block';
+});
+
+buttonNextQuestionSize.addEventListener('click', () => {
+  questionThree.style.display = 'block';
+});

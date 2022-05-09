@@ -10,18 +10,19 @@ const match = [
   {
     id: 1,
     name: 'Luna',
-    about: 'a fluffo doggo.',
+    about: 'A very fluffo doggo.',
     age: '4',
     gender: 'Female',
-    size: 'big',
+    size: 'Big',
   },
   {
     id: 2,
     name: 'Bambi',
-    about: 'A very fluffo doggo.',
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
     age: '3',
     gender: 'Female',
-    size: 'small',
+    size: 'Small',
   },
 ];
 

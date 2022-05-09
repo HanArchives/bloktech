@@ -19,6 +19,7 @@
   --bg-color-menu: rgba(105,156,252,255);
   --bg-color-button: #f89156;
   --bg-color-button-secondary: #3f99e3;
+  --bg-color-royal-blue: royalblue ;
 }
 
 /*****************/
@@ -99,7 +100,8 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 28rem;
+  min-width: 320px;
+  width: 70%;
 }
 
 .questionnaire h2 {
@@ -141,7 +143,10 @@ footer {
 .questionnaire ul div {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
+
 .questionnaire ul li button {
   background-color: var(--bg-color-button);
   box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3);
@@ -167,6 +172,35 @@ footer {
   box-shadow:inset 2px 2px 2px 2px rgb(154, 89, 40);
 }
 
+.questionnaire button {
+  background-color: var(--bg-color-royal-blue);
+  box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3);
+  border-radius: 15px;
+  border: none;
+  color: var(--color-secondary);
+  cursor: pointer;
+  font-family: "spoof", Arial, Helvetica, sans-serif;
+  margin-bottom: 2em;
+  padding: 1rem;
+}
+
+.questionnaire button:hover {
+  background-color: #fa7a2f;
+}
+
+.questionnaire button:active,
+.questionnaire button:focus {
+  box-shadow: none;}
+
+.questionnaire button:active {
+  box-shadow:inset 2px 2px 2px 2px rgb(154, 89, 40);
+}
+
+.questionnaire:nth-of-type(2),
+.questionnaire:nth-of-type(3) {
+  display: none;
+}
+
 label {
   background-color: var(--bg-color-button);
   border-radius: 15px;
@@ -181,8 +215,6 @@ label {
 
 label:before {
   display: block;
-  /* transition-duration: 0.4s; */
-  /* transform: scale(0); */
 }
 
 li input {
@@ -192,11 +224,9 @@ li input {
 :checked + label {
   background-color: var(--bg-color-button-secondary);
   box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3), inset 2px 2px 2px 2px royalblue;
-  /* border: #000 solid; */
 }
 
 :checked + label img {
-  /* transform: scale(0.9); */
   z-index: -1;
 }
 
@@ -208,7 +238,6 @@ label:active {
 
 label:active {
   box-shadow:inset 2px 2px 2px 2px royalblue;
-  /* margin-top: 5px; */
 }
 
 /**************/
@@ -221,12 +250,12 @@ label:active {
   display: flex;
   flex-direction: column;
   font-size: .875rem;
-  height: 30rem;
-  max-height: 40rem;
+  height: 80%;
+  min-width: 320px;
   overflow: hidden;
   position: relative;
   transition: background-color .3s ease-in-out;
-  width: 20rem
+  width: 70%;
 }
 
 .dog-profile__img-container {
@@ -266,13 +295,21 @@ label:active {
 }
 
 .dog-profile__content div ul {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  justify-content: space-evenly;
   list-style-type: none;
 }
 
+.dog-profile__content div ul li {
+  color: var(--bg-color-button);
+  font-weight: 600;
+}
 
-/* .dog-profile__content div ul li span {
-  font-weight: bold;
-} */
+.dog-profile__content div ul li span {
+  color: var(--bg-color-button-secondary);
+}
 
 .dog-profile__content h2 {
   background-color: rosybrown;
@@ -384,14 +421,15 @@ label:active {
 }
 
 /* 
-
 ** Button before and after (moet te voorschijn  komen wanneer er minimaal 1 gecheckt is.)
 ** Progressive disclosure 
 ** Error message (:required checkedbox) 
+** button aanpassen naar misschien 1x 
 */
 
-
-
-
-
-
+/* @media (min-width: 64em) {
+  main {
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr;
+  }
+}  */
