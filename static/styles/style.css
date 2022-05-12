@@ -71,7 +71,7 @@ nav button {
 }
 
 header button {
-  background-color: var(--bg-color-menu);
+  background-color: var(--bg-color-royal-blue);
   border: none;
   border-radius: 5px;
   color: var(--color-secondary);
@@ -190,7 +190,8 @@ footer {
 
 .questionnaire button:active,
 .questionnaire button:focus {
-  box-shadow: none;}
+  box-shadow: none;
+}
 
 .questionnaire button:active {
   box-shadow:inset 2px 2px 2px 2px rgb(154, 89, 40);
@@ -199,6 +200,7 @@ footer {
 .questionnaire:nth-of-type(2),
 .questionnaire:nth-of-type(3) {
   display: none;
+  text-align: center;
 }
 
 label {
@@ -350,39 +352,29 @@ label:active {
   box-shadow:inset 2px 2px 2px 2px rgb(154, 89, 40);
 }
 
-/***************/
-/* Size slider */
-/***************/
-.slider {
-  padding: 1rem;
-  width: 80%;
-}
-
-.slider input {
-  accent-color: purple;
-  cursor: pointer;
-  width: 100%;
-}
-
-.slider div {
-  align-items: baseline;
+/*************/
+/* dog-sizes */
+/*************/
+.dog-sizes {
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding: 0 1rem;
 }
 
-.slider div img:nth-of-type(1) {
+.dog-sizes img:nth-of-type(1) {
   height: 30px;
   width: auto;
 }
 
-.slider div img:nth-of-type(2) {
+.dog-sizes img:nth-of-type(2) {
   height: 50px;
   padding-left: 2rem;
   width: auto;
 }
 
-.slider div img:nth-of-type(3) {
+.dog-sizes img:nth-of-type(3) {
   height: 70px;
   width: auto;
 }
@@ -426,10 +418,26 @@ label:active {
 ** Error message (:required checkedbox) 
 ** button aanpassen naar misschien 1x 
 */
-
-/* @media (min-width: 64em) {
+/* 
+@media (min-width: 64em) {
   main {
   display: grid;
-  grid-template-columns: 1fr, 1fr, 1fr;
+  grid-auto-flow: column;
+  grid-row-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  }
+
+  .questionnaire {
+    height: 100%;
+    width: 100%;
+  }
+
+  .dog-profile {
+    height: auto;
+    width: 100%;
+  }
+
+  .dog-profile__content div ul li {
+    padding: 0.5rem;
   }
 }  */
