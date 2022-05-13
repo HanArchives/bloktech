@@ -74,6 +74,15 @@ function hideSections() {
 
 window.addEventListener('load', hideSections);
 
+// show select all button if JS is on
+function hideButtons() {
+  selectAllButtonOne.classList.add('show');
+  selectAllButtonTwo.classList.add('show');
+  selectAllButtonThree.classList.add('show');
+}
+
+window.addEventListener('load', hideButtons);
+
 // Next button vissible onClick
 questionOne.addEventListener('click', () => {
   buttonNextQuestionAge.style.visibility = 'visible';
@@ -85,16 +94,12 @@ questionTwo.addEventListener('click', () => {
   buttonNextQuestionSize.style.opacity = '1';
 });
 
-questionThree.addEventListener('click', () => {
-  buttonSubmit.style.visibility = 'visible';
-  buttonSubmit.style.opacity = '1';
-});
+// questionThree.addEventListener('click', () => {
+//   buttonSubmit.style.visibility = 'visible';
+//   buttonSubmit.style.opacity = '1';
+// });
 
-// database moet de geselecteerde kunnen opslaan. 1 formulier posten.
-// metod post app.post.results
-// req.body.male true of false
-//
-
+// prevent buttons in questionnaire from submitting
 const buttons = document.querySelectorAll('.questionnaire button');
 
 buttons.forEach((item) => {
@@ -103,11 +108,7 @@ buttons.forEach((item) => {
   });
 });
 
-// show select all button if JS is on
-function hideButtons() {
-  selectAllButtonOne.classList.add('show');
-  selectAllButtonTwo.classList.add('show');
-  selectAllButtonThree.classList.add('show');
-}
-
-window.addEventListener('load', hideButtons);
+// database moet de geselecteerde kunnen opslaan. 1 formulier posten.
+// metod post app.post.results
+// req.body.male true of false
+//

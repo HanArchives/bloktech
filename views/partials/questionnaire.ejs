@@ -1,76 +1,72 @@
 <!-- <form action="/"><form>-->
 <!-- Question one -->
-<form action="/">
+<form action="/" method="post">
     <section class="questionnaire first">
         <h2>
             Gender?
         </h2>
-        <img src="./img/mainpom.png" alt="Gender">
-        <ul class="question-1">
-            <div>
-                <li><input name="female" type="checkbox" id="choise-one" />
-                    <label for="choise-one"><img src="./img/femalew.png" alt="female" /></label>
-                </li>
-                <li><input name="male" type="checkbox" id="choise-two" />
-                    <label for="choise-two"><img src="./img/malew.png" alt="male" /></label>
-                </li>
+        <img src="./img/mainpom.png" alt="Pom">
+        <div class="question-1">
+            <div class="questionnaire-row">
+                <div><input name="gender" type="checkbox" id="female" />
+                    <label for="female"><img src="./img/femalew.png" alt="female" /></label>
+                </div>
+                <div><input name="gender" type="checkbox" id="male" />
+                    <label for="male"><img src="./img/malew.png" alt="male" /></label>
+                </div>
             </div>
-            <li>
-                <button class="select-all-one">Select all</button>
-            </li>
-        </ul>
+            <button class="select-all-one">Select all</button>
+        </div>
         <button class="btn-next-1">Next</button>
     </section>
 
-    <!-- Question two-->
+    <!-- Question two -->
     <section class="questionnaire second">
         <h2>
             Age?
         </h2>
-        <img src="./img/age.png" alt="Gender">
-        <ul class="question-2">
-            <div>
-                <li><input name="zero-till-five" type="checkbox" id="choise-three" />
-                    <label for="choise-three">0 - 5</label>
-                </li>
-                <li><input name="six-till-ten" type="checkbox" id="choise-four" />
-                    <label for="choise-four">6 - 10</label>
-                </li>
-                <li><input name="ten-plus" type="checkbox" id="choise-five" />
-                    <label for="choise-five">10+</label>
-                </li>
+        <img src="./img/age.png" alt="PomPoms">
+        <div class="question-2">
+            <div class="questionnaire-row">
+                <div><input name="age" type="checkbox" id="zero-five" />
+                    <label for="zero-five">0 - 5</label>
+                </div>
+                <div><input name="age" type="checkbox" id="six-ten" />
+                    <label for="six-ten">6 - 10</label>
+                </div>
+                <div><input name="age" type="checkbox" id="ten-plus" />
+                    <label for="ten-plus">10+</label>
+                </div>
             </div>
-            <li>
-                <button class="select-all-two">Select all</button>
-            </li>
-        </ul>
+            <button class="select-all-two">Select all</button>
+        </div>
         <button class="btn-next-2">Next</button>
     </section>
 
-    <!-- Question three-->
+    <!-- Question three -->
     <section class="questionnaire third">
         <h2>
             Size?
         </h2>
-        <img src="./img/size.png" alt="Gender">
+        <img src="./img/size.png" alt="Doggo">
         <%- include('../partials/dog-sizes'); %>
-            <ul class="question-3">
-                <div>
-                    <li><input name="size" type="checkbox" id="choise-six" />
-                        <label for="choise-six">Small</label>
-                    </li>
-                    <li><input name="size" type="checkbox" id="choise-seven" />
-                        <label for="choise-seven">Medium</label>
-                    </li>
-                    <li><input name="size" type="checkbox" id="choise-eight" />
-                        <label for="choise-eight">Large</label>
-                    </li>
+            <div class="question-3">
+                <div class="questionnaire-row">
+                    <div><input name="size" type="checkbox" id="small" />
+                        <label for="small">Small</label>
+                    </div>
+                    <div><input name="size" type="checkbox" id="medium" />
+                        <label for="medium">Medium</label>
+                    </div>
+                    <div><input name="size" type="checkbox" id="large" />
+                        <label for="large">Large</label>
+                    </div>
                 </div>
-                <li>
-                    <button class="select-all-three">Select all</button>
-                </li>
-            </ul>
-            <input class="btn-submit" type="submit">Show my match!</input>
+                <button class="select-all-three">Select all</button>
+            </div>
+            <div class="btn-submit">
+                <input name="submit" type="submit" id="submit">
+                <label for="submit">Show my match!</label>
+            </div>
     </section>
-
 </form>
