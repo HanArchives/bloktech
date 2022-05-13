@@ -145,10 +145,17 @@ footer {
   justify-content: space-around;
 }
 
-.questionnaire:nth-of-type(2),
-.questionnaire:nth-of-type(3) {
+/* hide the question 2 and 3 */
+.hide {
   display: none;
   text-align: center;
+}
+
+/* Hide the next buttons */
+.btn-next-1,
+.btn-next-2,
+.btn-submit {
+  visibility: hidden;
 }
 
 label {

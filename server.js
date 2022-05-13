@@ -38,11 +38,6 @@ app.get('/match', (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.get('/:id', (req, res, next) => {
-// const id = req.params.id;
-// const movie = find(date,function (value)
-// });
-
 // reponse 404 message when file not found
 app.use((req, res) => {
   res.status(404).render('pages/404');
