@@ -65,7 +65,7 @@ buttonNextQuestionSize.addEventListener('click', () => {
   questionThree.scrollIntoView({ behavior: 'smooth' });
 });
 
-// hide question 2 and 3 (add class)
+// hide question 2 and 3 (add class) if js is on
 // asynch multiple task at the same time / synch per task
 function hideSections() {
   questionTwo.classList.add('hide');
@@ -103,6 +103,7 @@ buttons.forEach((item) => {
   });
 });
 
+// show select all button if JS is on
 function hideButtons() {
   selectAllButtonOne.classList.add('show');
   selectAllButtonTwo.classList.add('show');
