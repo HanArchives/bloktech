@@ -20,6 +20,7 @@
   --bg-color-button: #f89156;
   --bg-color-button-secondary: #3f99e3;
   --bg-color-royal-blue: royalblue ;
+  --bg-color-next-button: yellow;
 }
 
 /*****************/
@@ -89,6 +90,14 @@ footer {
 /**************************************/
 /* CODE FOR MAIN_SECTION QUESTIONAIIRE*/
 /**************************************/
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .questionnaire {
   align-items: center;
   background-color: var(--color-secondary);
@@ -97,6 +106,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 2rem;
   min-width: 320px;
   padding: 1rem;
   width: 60%;
@@ -151,10 +161,25 @@ footer {
   text-align: center;
 }
 
+/* show select all buttons */
+.select-all-one,
+.select-all-two,
+.select-all-three {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+  text-align: center;
+}
+
 /* Hide the next buttons */
 .btn-next-1,
 .btn-next-2,
 .btn-submit {
+  background-color: #3f99e3;
+  opacity:0;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
   visibility: hidden;
 }
 
@@ -273,6 +298,7 @@ button:active {
 }
 
 .dog-profile__content div {
+  align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;

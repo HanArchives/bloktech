@@ -15,30 +15,33 @@ const openMenu = () => {
 };
 openButton.addEventListener('click', openMenu);
 
-/// /////////////
+////////////////
 // Select All //
-/// /////////////
+////////////////
 const selectAllButtonOne = document.querySelector('.select-all-one');
 const selectAllButtonTwo = document.querySelector('.select-all-two');
 const selectAllButtonThree = document.querySelector('.select-all-three');
 
 function checkAll(selector) {
-  const checkboxes = document.querySelectorAll(selector); // variabel checboxes heeft parameter selector. Dus selecteerd alles
+  // variabel checboxes heeft parameter selector. Dus selecteerd alles
+  const checkboxes = document.querySelectorAll(selector);
   for (const checkbox of checkboxes) {
-    checkbox.checked = !checkbox.checked; //! betekend het omgekeerde van true/false dit zorgt ervoor dat het allemaal selecteerd en deselecteerd
+    //! betekend het omgekeerde van true/false dit zorgt ervoor dat het allemaal selecteerd en deselecteerd
+    checkbox.checked = !checkbox.checked;
   }
 }
 
 selectAllButtonOne.addEventListener('click', () => {
-  checkAll('.question-1 input[type="checkbox"]'); // parameter die je mee geeft aan functie checkAll
+  // parameter die je mee geeft aan functie checkAll
+  checkAll('.question-1 input[type="checkbox"]');
 });
 
 selectAllButtonTwo.addEventListener('click', () => {
-  checkAll('.question-2 input[type="checkbox"]'); // parameter die je mee geeft aan functie checkAll
+  checkAll('.question-2 input[type="checkbox"]');
 });
 
 selectAllButtonThree.addEventListener('click', () => {
-  checkAll('.question-3 input[type="checkbox"]'); // parameter die je mee geeft aan functie checkAll
+  checkAll('.question-3 input[type="checkbox"]');
 });
 
 /// ///////////////////////////////////
@@ -63,6 +66,7 @@ buttonNextQuestionSize.addEventListener('click', () => {
 });
 
 // hide question 2 and 3 (add class)
+// asynch multiple task at the same time / synch per task
 function hideSections() {
   questionTwo.classList.add('hide');
   questionThree.classList.add('hide');
@@ -73,17 +77,36 @@ window.addEventListener('load', hideSections);
 // Next button vissible onClick
 questionOne.addEventListener('click', () => {
   buttonNextQuestionAge.style.visibility = 'visible';
+  buttonNextQuestionAge.style.opacity = '1';
 });
 
 questionTwo.addEventListener('click', () => {
   buttonNextQuestionSize.style.visibility = 'visible';
+  buttonNextQuestionSize.style.opacity = '1';
 });
 
 questionThree.addEventListener('click', () => {
   buttonSubmit.style.visibility = 'visible';
+  buttonSubmit.style.opacity = '1';
 });
 
 // database moet de geselecteerde kunnen opslaan. 1 formulier posten.
 // metod post app.post.results
 // req.body.male true of false
 //
+
+const buttons = document.querySelectorAll('.questionnaire button');
+
+buttons.forEach((item) => {
+  item.addEventListener('click', (event) => {
+    event.preventDefault();
+  });
+});
+
+function hideButtons() {
+  selectAllButtonOne.classList.add('show');
+  selectAllButtonTwo.classList.add('show');
+  selectAllButtonThree.classList.add('show');
+}
+
+window.addEventListener('load', hideButtons);
