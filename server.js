@@ -3,8 +3,6 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const url = require('url'); // hierdoor kan de URL uitgelezen worden http://localhost:3000/match?dogID=2
-// const { application } = require('express');
-// const req = require('express/lib/request');
 const matches = require('./mock-data/matches');
 
 // port 3000

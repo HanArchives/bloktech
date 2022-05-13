@@ -27,6 +27,26 @@ const match = [
     gender: 'Female',
     size: 'Small',
   },
+  {
+    id: 3,
+    image: '/img/yebba.jpg',
+    name: 'Yebba',
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+    age: '3',
+    gender: 'Female',
+    size: 'medium',
+  },
+  {
+    id: 4,
+    image: '/img/luna.jpg',
+    name: 'Ziggles',
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+    age: '10',
+    gender: 'Male',
+    size: 'Small',
+  },
 ];
 
 module.exports = match;
