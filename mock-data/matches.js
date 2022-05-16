@@ -4,18 +4,18 @@ const match = [
     image: '/img/yebba.jpg',
     name: 'Charles',
     about: 'a fluffo doggo.',
-    age: '2',
-    gender: 'Male',
-    size: 'Medium',
+    age: 'zero-five',
+    gender: 'male',
+    size: 'large',
   },
   {
     id: 1,
     image: '/img/luna.jpg',
     name: 'Luna',
     about: 'A very fluffo doggo.',
-    age: '4',
-    gender: 'Female',
-    size: 'Big',
+    age: 'six-ten',
+    gender: 'female',
+    size: 'large',
   },
   {
     id: 2,
@@ -23,9 +23,9 @@ const match = [
     name: 'Bambi',
     about:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-    age: '3',
-    gender: 'Female',
-    size: 'Small',
+    age: 'six-ten',
+    gender: 'female',
+    size: 'small',
   },
   {
     id: 3,
@@ -33,8 +33,8 @@ const match = [
     name: 'Yebba',
     about:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-    age: '3',
-    gender: 'Female',
+    age: 'ten-plus',
+    gender: 'female',
     size: 'medium',
   },
   {
@@ -43,9 +43,9 @@ const match = [
     name: 'Ziggles',
     about:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-    age: '10',
-    gender: 'Male',
-    size: 'Small',
+    age: 'ten-plus',
+    gender: 'male',
+    size: 'small',
   },
 ];
 
