@@ -1,4 +1,3 @@
-const { match } = require('assert');
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -23,7 +22,7 @@ app.get('/index', (req, res) => {
 // match page render
 app.get('/match', (req, res) => {
   const q = url.parse(req.url, true).query;
-  // default waarde geven
+  // default
   if (q.dogID == null) {
     q.dogID = 2;
   }
@@ -34,7 +33,6 @@ app.get('/match', (req, res) => {
   });
 });
 
-// TEST //
 // Parse JSON bodies (as sent by API clients) (JS OBJECT MAKEN)
 app.use(express.json());
 // Parse URL-encoded bodies (as sent by HTML forms)

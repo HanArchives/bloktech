@@ -49,10 +49,10 @@ selectAllButtonThree.addEventListener('click', () => {
 /// ///////////////////////////////////
 const buttonNextQuestionAge = document.querySelector('.btn-next-1');
 const buttonNextQuestionSize = document.querySelector('.btn-next-2');
-const buttonSubmit = document.querySelector('.btn-submit');
 const questionOne = document.querySelector('.first');
 const questionTwo = document.querySelector('.second');
 const questionThree = document.querySelector('.third');
+//const buttonSubmit = document.querySelector('.btn-submit');
 
 // Onclick show and scroll to next question
 buttonNextQuestionAge.addEventListener('click', () => {
@@ -94,6 +94,7 @@ questionTwo.addEventListener('click', () => {
   buttonNextQuestionSize.style.opacity = '1';
 });
 
+// Temporary visibility Submit button on hold.
 // questionThree.addEventListener('click', () => {
 //   buttonSubmit.style.visibility = 'visible';
 //   buttonSubmit.style.opacity = '1';
@@ -108,29 +109,16 @@ buttons.forEach((item) => {
   });
 });
 
-// database moet de geselecteerde kunnen opslaan. 1 formulier posten.
-// metod post app.post.results
-// req.body.male true of false
-//
-// Async / Await + Render lelijk to DOM
-// async function fetchData() {
-//   const url = 'https://api.github.com/repos/cmda-bt/pt-course-21-22/stargazers';
-//   let response = await fetch(url);
-//   let stargazers = await response.json();
+// API random quotes
+async function fetchData() {
+  const url = 'https://cat-fact.herokuapp.com/facts/random';
+  let response = await fetch(url);
+  // console.log(response);
+  let data = await response.json();
+  // console.log(data);
+  let randomQuote = document.querySelector('.random-quote');
+  randomQuote.innerHTML = data.text;
+  // document.body.innerHTML = data.text;
+}
 
-//   // Renderfunction shamellysly copy pasted van het internet
-//   let html = '';
-//   stargazers.forEach((user) => {
-//     console.log(user.login);
-//     let htmlSegment = `<div class="user">
-//                            <h2>${user.login}</h2>
-//                        </div>`;
-
-//     html += htmlSegment;
-//   });
-
-//   let container = document.querySelector('body');
-//   container.innerHTML = html;
-// }
-
-// fetchData();
+fetchData();
