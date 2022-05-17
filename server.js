@@ -41,37 +41,34 @@ app.use(express.urlencoded({ extended: true }));
 //Temporary data storage
 const matchItems = [{}];
 
-// const findMatch = (age, gender, size) => {
-//   matches.filter((match) => {
-//     return match.age == age && match.size == size && match.gender == gender;
-//   });
-// };
-
 app.post('/', (req, res) => {
-  // console.log(req.body);
-
   matchItems.push({
     gender: req.body.gender,
     age: req.body.age,
     size: req.body.size,
   });
 
-  // const age = req.body.age;
-  // const size = req.body.size;
-  // const gender = req.body.gender;
+  // test
+  const userMatches = matches.filter((match) => {
+    return (
+      match.age == req.body.age &&
+      match.size == req.body.size &&
+      match.gender == req.body.gender
+    );
+  });
 
-  // findMatch(age, gender, size);
+  res.render('pages/match', { userMatches });
 
-  console.log(
-    matches.filter((match) => {
-      return (
-        match.age == req.body.age &&
-        match.size == req.body.size &&
-        match.gender == req.body.gender
-      );
-    })
-  );
-  res.redirect('/match');
+  // console.log(
+  //   matches.filter((match) => {
+  //     return (
+  //       match.age == req.body.age &&
+  //       match.size == req.body.size &&
+  //       match.gender == req.body.gender
+  //     );
+  //   })
+  // );
+  // res.redirect('/match');
 });
 
 // reponse 404 message when file not found

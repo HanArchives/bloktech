@@ -109,6 +109,9 @@ buttons.forEach((item) => {
   });
 });
 
+/////////
+// API //
+/////////
 // API random quotes
 async function fetchData() {
   const url = 'https://cat-fact.herokuapp.com/facts/random';
