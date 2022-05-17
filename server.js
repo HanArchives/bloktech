@@ -57,7 +57,7 @@ app.post('/', (req, res) => {
     );
   });
 
-  res.render('pages/match', { userMatches });
+  res.render('pages/match', { matches: userMatches });
 
   // console.log(
   //   matches.filter((match) => {

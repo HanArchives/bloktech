@@ -1,30 +1,32 @@
 <section class="dog-profile">
-    <div class="dog-profile__img-container">
-        <img src="<%= matches[dogID].image %>" alt="doggo">
-    </div>
-    <div class="dog-profile__content">
-        <h2>
-            <%= matches[dogID].name %>
-        </h2>
-        <div>
-            <p>
-                <%= matches[dogID].about %>
-            </p>
-            <ul>
-                <li>
-                    <span>Age:</span>
-                    <%= matches[dogID].age %> years
-                </li>
-                <li>
-                    <span>Gender:</span>
-                    <%= matches[dogID].gender %>
-                </li>
-                <li>
-                    <span>Size:</span>
-                    <%= matches[dogID].size %>
-                </li>
-            </ul>
-            <button>Adoption</button>
+    <% matches.forEach(function(matches) { %>
+        <div class="dog-profile__img-container">
+            <img src="<%= matches.image %>" alt="doggo">
         </div>
-    </div>
+        <div class="dog-profile__content">
+            <h2>
+                <%= matches.name %>
+            </h2>
+            <div>
+                <p>
+                    <%= matches.about %>
+                </p>
+                <ul>
+                    <li>
+                        <span>Age:</span>
+                        <%= matches.age %> years
+                    </li>
+                    <li>
+                        <span>Gender:</span>
+                        <%= matches.gender %>
+                    </li>
+                    <li>
+                        <span>Size:</span>
+                        <%= matches.size %>
+                    </li>
+                </ul>
+                <button>Adoption</button>
+            </div>
+        </div>
+        <% }); %>
 </section>

@@ -109,19 +109,32 @@ buttons.forEach((item) => {
   });
 });
 
-/////////
-// API //
-/////////
-// API random quotes
-async function fetchData() {
+//////////////////////
+// API random image //
+//////////////////////
+async function fetchImage() {
+  const url = 'https://random.dog/woof.json';
+  let response = await fetch(url);
+  // console.log(response);
+  let image = await response.json();
+  // console.log(data);
+  let randomImage = document.querySelector('.random-image');
+  randomImage.innerHTML = `<img src="${image.url}" alt="doggo"/>`;
+}
+
+fetchImage();
+
+///////////////////////
+// API random quotes //
+///////////////////////
+async function fetchQuote() {
   const url = 'https://cat-fact.herokuapp.com/facts/random';
   let response = await fetch(url);
   // console.log(response);
-  let data = await response.json();
+  let quote = await response.json();
   // console.log(data);
   let randomQuote = document.querySelector('.random-quote');
-  randomQuote.innerHTML = data.text;
-  // document.body.innerHTML = data.text;
+  randomQuote.innerHTML = quote.text;
 }
 
-fetchData();
+fetchQuote();
