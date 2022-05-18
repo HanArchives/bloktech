@@ -5,29 +5,29 @@ const port = process.env.PORT || 3000;
 // const url = require('url'); // hierdoor kan de URL uitgelezen worden http://localhost:3000/match?dogID=2
 const matches = require('./mock-data/matches');
 
-// MongoDB
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri =
-//   'mongodb+srv://' +
-//   process.env.DB_USERNAME +
-//   ':' +
-//   process.env.DB_PASS +
-//   '@' +
-//   process.env.DB_HOST +
-//   '/' +
-//   process.env.DB_NAME +
-//   '?retryWrites=true&w=majority';
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverApi: ServerApiVersion.v1,
-// });
-// client.connect((err) => {
-//   const collection = client.db('test').collection('devices');
-//   // perform actions on the collection object
-//   console.log('connected');
-//   client.close();
-// });
+//MongoDB
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri =
+  'mongodb+srv://' +
+  process.env.DB_USERNAME +
+  ':' +
+  process.env.DB_PASS +
+  '@' +
+  process.env.DB_HOST +
+  '/' +
+  process.env.DB_NAME +
+  '/?retryWrites=true&w=majority';
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
+// eslint-disable-next-line no-unused-vars
+client.connect((err) => {
+  const collection = client.db('PawDoption').collection('matches');
+  console.log(collection);
+  // client.close();
+});
 
 // port 3000
 app.listen(port, () => {
@@ -40,7 +40,7 @@ app.set('view engine', 'ejs'); // to use ejs
 app.set('views, view');
 
 // index page render
-app.get('/index', (req, res) => {
+app.get('/', (req, res) => {
   res.render('pages/index');
 });
 
