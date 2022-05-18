@@ -52,7 +52,7 @@ const buttonNextQuestionSize = document.querySelector('.btn-next-2');
 const questionOne = document.querySelector('.first');
 const questionTwo = document.querySelector('.second');
 const questionThree = document.querySelector('.third');
-//const buttonSubmit = document.querySelector('.btn-submit');
+const buttonSubmit = document.querySelector('.btn-submit');
 
 // Onclick show and scroll to next question
 buttonNextQuestionAge.addEventListener('click', () => {
@@ -94,12 +94,6 @@ questionTwo.addEventListener('click', () => {
   buttonNextQuestionSize.style.opacity = '1';
 });
 
-// Temporary visibility Submit button on hold.
-// questionThree.addEventListener('click', () => {
-//   buttonSubmit.style.visibility = 'visible';
-//   buttonSubmit.style.opacity = '1';
-// });
-
 // prevent buttons in questionnaire from submitting
 const buttons = document.querySelectorAll('.questionnaire button');
 
@@ -109,20 +103,35 @@ buttons.forEach((item) => {
   });
 });
 
-//////////////////////
-// API random image //
-//////////////////////
-// async function fetchImage() {
-//   const url = 'https://random.dog/woof.json';
-//   let response = await fetch(url);
-//   // console.log(response);
-//   let image = await response.json();
-//   // console.log(data);
-//   let randomImage = document.querySelector('.random-image');
-//   randomImage.innerHTML = `<img src="${image.url}" alt="doggo"/>`;
-// }
+//////////////////////////////////
+// Atleast one checkbox checked //
+//////////////////////////////////
+buttonSubmit.addEventListener('click', (event) => {
+  let isFormValid = true;
+  const errorOne = document.querySelector('.error-1');
+  const errorTwo = document.querySelector('.error-2');
+  const errorThree = document.querySelector('.error-3');
 
-// fetchImage();
+  if (document.querySelectorAll('[name="gender"]:checked').length < 1) {
+    isFormValid = false;
+    errorOne.style.display = 'block';
+    event.preventDefault();
+  }
+
+  if (document.querySelectorAll('[name="age"]:checked').length < 1) {
+    isFormValid = false;
+    errorTwo.style.display = 'block';
+    event.preventDefault();
+  }
+
+  if (document.querySelectorAll('[name="size"]:checked').length < 1) {
+    isFormValid = false;
+    errorThree.style.display = 'block';
+    event.preventDefault();
+  }
+
+  return isFormValid;
+});
 
 ///////////////////////
 // API random quotes //
@@ -138,6 +147,21 @@ async function fetchQuote() {
 }
 
 fetchQuote();
+
+//////////////////////
+// API random image //
+//////////////////////
+// async function fetchImage() {
+//   const url = 'https://random.dog/woof.json';
+//   let response = await fetch(url);
+//   // console.log(response);
+//   let image = await response.json();
+//   // console.log(data);
+//   let randomImage = document.querySelector('.random-image');
+//   randomImage.innerHTML = `<img src="${image.url}" alt="doggo"/>`;
+// }
+
+// fetchImage();
 
 /////////////
 // loader //

@@ -112,6 +112,14 @@ form {
   width: 60%;
 }
 
+.error-1,
+.error-2,
+.error-3 {
+  color: red;
+  display: none;
+  margin-top: 0;
+}
+
 .questionnaire h2 {
   font-size: 2.5rem;
 }
@@ -141,11 +149,6 @@ form {
   width: 100px;
 }
 
-/* .btn-submit {
-  filter:blur(15px);
-  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-} */
-
 /* hide the question 2 and 3 */
 .hide {
   display: none;
@@ -160,11 +163,6 @@ form {
 .select-all-three {
   width: 31%;
 }
-
-/* .btn-next-1,
-.btn-next-2 {
-  
-} */
 
 /* show select all buttons */
 .select-all-one,
