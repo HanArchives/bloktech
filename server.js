@@ -5,6 +5,30 @@ const port = process.env.PORT || 3000;
 // const url = require('url'); // hierdoor kan de URL uitgelezen worden http://localhost:3000/match?dogID=2
 const matches = require('./mock-data/matches');
 
+// MongoDB
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri =
+//   'mongodb+srv://' +
+//   process.env.DB_USERNAME +
+//   ':' +
+//   process.env.DB_PASS +
+//   '@' +
+//   process.env.DB_HOST +
+//   '/' +
+//   process.env.DB_NAME +
+//   '?retryWrites=true&w=majority';
+// const client = new MongoClient(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   serverApi: ServerApiVersion.v1,
+// });
+// client.connect((err) => {
+//   const collection = client.db('test').collection('devices');
+//   // perform actions on the collection object
+//   console.log('connected');
+//   client.close();
+// });
+
 // port 3000
 app.listen(port, () => {
   console.log(`Example app listening on  http://localhost:${port}`);
@@ -22,41 +46,23 @@ app.get('/index', (req, res) => {
 
 // match page render
 app.get('/match', (req, res) => {
-  // const q = url.parse(req.url, true).query;
-  // // default
-  // if (q.dogID == null) {
-  //   q.dogID = 2;
-  // }
-
   res.render('pages/match', {
     matches,
-    // dogID: q.dogID,
   });
 });
 
 // Parse JSON bodies (as sent by API clients) (JS OBJECT MAKEN)
 app.use(express.json());
-// Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
 
-//Temporary data storage
-// const matchItems = [{}];
-
 app.post('/', (req, res) => {
-  // matchItems.push({
-  //   gender: req.body.gender,
-  //   age: req.body.age,
-  //   size: req.body.size,
-  // });
-
-  // test
   const userMatches = matches.filter((match) => {
     // checking if filters are correct
     const ageMatches = req.body.age.includes(match.age);
     const sizeMatches = req.body.size.includes(match.size);
     const genderMatches = req.body.gender.includes(match.gender);
 
-    // console.log(ageMatches, sizeMatches, genderMatches);
+    //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
     // if true true true = return(show) only valid match
     if (ageMatches && sizeMatches && genderMatches) {
       return match;
