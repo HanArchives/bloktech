@@ -50,11 +50,15 @@ app.post('/', (req, res) => {
 
   // test
   const userMatches = matches.filter((match) => {
-    return (
-      match.age == req.body.age &&
-      match.size == req.body.size &&
-      match.gender == req.body.gender
-    );
+    // checken of de filters correct zijn
+    const ageMatches = req.body.age.includes(match.age);
+    const sizeMatches = req.body.size.includes(match.size);
+    const genderMatches = req.body.gender.includes(match.gender);
+
+    // if true true true = show only valid match
+    if (ageMatches && sizeMatches && genderMatches) {
+      return match;
+    }
   });
 
   res.render('pages/match', { matches: userMatches });

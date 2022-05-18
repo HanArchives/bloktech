@@ -112,17 +112,17 @@ buttons.forEach((item) => {
 //////////////////////
 // API random image //
 //////////////////////
-async function fetchImage() {
-  const url = 'https://random.dog/woof.json';
-  let response = await fetch(url);
-  // console.log(response);
-  let image = await response.json();
-  // console.log(data);
-  let randomImage = document.querySelector('.random-image');
-  randomImage.innerHTML = `<img src="${image.url}" alt="doggo"/>`;
-}
+// async function fetchImage() {
+//   const url = 'https://random.dog/woof.json';
+//   let response = await fetch(url);
+//   // console.log(response);
+//   let image = await response.json();
+//   // console.log(data);
+//   let randomImage = document.querySelector('.random-image');
+//   randomImage.innerHTML = `<img src="${image.url}" alt="doggo"/>`;
+// }
 
-fetchImage();
+// fetchImage();
 
 ///////////////////////
 // API random quotes //
@@ -138,3 +138,7 @@ async function fetchQuote() {
 }
 
 fetchQuote();
+
+/////////////
+// loader //
+////////////
