@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+require('dotenv').config();
+const port = process.env.PORT || 3000;
 const url = require('url'); // hierdoor kan de URL uitgelezen worden http://localhost:3000/match?dogID=2
 const matches = require('./mock-data/matches');
 
