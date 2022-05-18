@@ -6,28 +6,28 @@ const port = process.env.PORT || 3000;
 const matches = require('./mock-data/matches');
 
 //MongoDB
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri =
-  'mongodb+srv://' +
-  process.env.DB_USERNAME +
-  ':' +
-  process.env.DB_PASS +
-  '@' +
-  process.env.DB_HOST +
-  '/' +
-  process.env.DB_NAME +
-  '/?retryWrites=true&w=majority';
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverApi: ServerApiVersion.v1,
-});
-// eslint-disable-next-line no-unused-vars
-client.connect((err) => {
-  const collection = client.db('PawDoption').collection('matches');
-  console.log(collection);
-  // client.close();
-});
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+// const uri =
+//   'mongodb+srv://' +
+//   process.env.DB_USERNAME +
+//   ':' +
+//   process.env.DB_PASS +
+//   '@' +
+//   process.env.DB_HOST +
+//   '/' +
+//   process.env.DB_NAME +
+//   '/?retryWrites=true&w=majority';
+// const client = new MongoClient(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   serverApi: ServerApiVersion.v1,
+// });
+// // eslint-disable-next-line no-unused-vars
+// client.connect((err) => {
+//   const collection = client.db('PawDoption').collection('matches');
+//   console.log(collection);
+//   // client.close();
+// });
 
 // port 3000
 app.listen(port, () => {
