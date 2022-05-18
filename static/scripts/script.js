@@ -28,6 +28,7 @@ function checkAll(selector) {
   for (const checkbox of checkboxes) {
     //! betekend het omgekeerde van true/false dit zorgt ervoor dat het allemaal selecteerd en deselecteerd
     checkbox.checked = !checkbox.checked;
+    //checkbox.checked = !this.checked;
   }
 }
 
@@ -74,7 +75,9 @@ function hideSections() {
 
 window.addEventListener('load', hideSections);
 
-// show select all button if JS is on
+////////////////////////////////////////
+// show select all button if JS is on //
+////////////////////////////////////////
 function hideButtons() {
   selectAllButtonOne.classList.add('show');
   selectAllButtonTwo.classList.add('show');
@@ -83,7 +86,9 @@ function hideButtons() {
 
 window.addEventListener('load', hideButtons);
 
-// Next button vissible onClick
+//////////////////////////////////
+// Next button vissible onClick //
+//////////////////////////////////
 questionOne.addEventListener('click', () => {
   buttonNextQuestionAge.style.visibility = 'visible';
   buttonNextQuestionAge.style.opacity = '1';
@@ -163,6 +168,6 @@ fetchQuote();
 
 // fetchImage();
 
-/////////////
+////////////
 // loader //
 ////////////

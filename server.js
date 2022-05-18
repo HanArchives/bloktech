@@ -5,7 +5,9 @@ const port = process.env.PORT || 3000;
 // const url = require('url'); // hierdoor kan de URL uitgelezen worden http://localhost:3000/match?dogID=2
 const matches = require('./mock-data/matches');
 
-//MongoDB
+/////////////
+// MongoDB //
+/////////////
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 // const uri =
 //   'mongodb+srv://' +
@@ -29,22 +31,30 @@ const matches = require('./mock-data/matches');
 //   // client.close();
 // });
 
-// port 3000
+///////////////
+// port 3000 //
+///////////////
 app.listen(port, () => {
   console.log(`Example app listening on  http://localhost:${port}`);
 });
 
-// Middleware
+////////////////
+// Middleware //
+////////////////
 app.use(express.static('static')); // show static files on localhost
 app.set('view engine', 'ejs'); // to use ejs
 app.set('views, view');
 
-// index page render
+///////////////////////
+// index page render //
+///////////////////////
 app.get('/', (req, res) => {
   res.render('pages/index');
 });
 
-// match page render
+///////////////////////
+// match page  filter//
+///////////////////////
 app.get('/match', (req, res) => {
   res.render('pages/match', {
     matches,
@@ -72,7 +82,9 @@ app.post('/', (req, res) => {
   res.render('pages/match', { matches: userMatches });
 });
 
-// reponse 404 message when file not found
+/////////////////
+// reponse 404 //
+/////////////////
 app.use((req, res) => {
   res.status(404).render('pages/404');
 });
