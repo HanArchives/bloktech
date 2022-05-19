@@ -101,3 +101,35 @@ app.use((req, res) => {
 
 //await db.collection('matches').insertOne(match);
 connectDB().then(console.log('we have a connection to mongo!'));
+
+// WITH MOCK_DATA
+// app.get('/match', (req, res) => {
+//   res.render('pages/match', {
+//     matches,
+//   });
+// });
+
+// // Parse JSON bodies (as sent by API clients) (JS OBJECT MAKEN)
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// app.post('/', (req, res) => {
+//   // app.post('/', async (req, res) => {
+//   // const matches = await db.collection('matches').find(query, {}).toArray();
+//   // const query = { name: '' };
+
+//   const userMatches = matches.filter((match) => {
+//     // checking if filters are correct
+//     const ageMatches = req.body.age.includes(match.age);
+//     const sizeMatches = req.body.size.includes(match.size);
+//     const genderMatches = req.body.gender.includes(match.gender);
+
+//     //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
+//     // if true true true = return(show) only valid match
+//     if (ageMatches && sizeMatches && genderMatches) {
+//       return match;
+//     }
+//   });
+
+//   res.render('pages/match', { matches: userMatches });
+// });
