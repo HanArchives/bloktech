@@ -72,24 +72,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/', async (req, res) => {
-  const query = { name: 'Luna' };
+  const query = req.query.gender;
   const matches = await db.collection('matches').find(query, {}).toArray();
 
-  // const userMatches = matches.filter((match) => {
-  //   // checking if filters are correct
-  //   const ageMatches = req.body.age.includes(match.age);
-  //   const sizeMatches = req.body.size.includes(match.size);
-  //   const genderMatches = req.body.gender.includes(match.gender);
+  const userMatches = matches.filter((match) => {
+    // checking if filters are correct true/false
+    const ageMatches = req.body.age.includes(match.age);
+    const sizeMatches = req.body.size.includes(match.size);
+    const genderMatches = req.body.gender.includes(match.gender);
 
-  //   //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
-  //   // if true true true = return(show) only valid match
-  //   if (ageMatches && sizeMatches && genderMatches) {
-  //     return match;
-  //   }
-  // })
-  console.log(query);
-  console.log(matches);
-  res.render('pages/match', { matches: matches });
+    //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
+    // if true true true = return only valid match
+    if (ageMatches && sizeMatches && genderMatches) {
+      return match;
+    }
+  });
+
+  console.log(userMatches);
+  res.render('pages/match', { matches: userMatches });
 });
 
 /////////////////
@@ -99,9 +99,10 @@ app.use((req, res) => {
   res.status(404).render('pages/404');
 });
 
-//await db.collection('matches').insertOne(match);
+// Checking connection with DB
 connectDB().then(console.log('we have a connection to mongo!'));
 
+//await db.collection('matches').insertOne(match);
 // WITH MOCK_DATA
 // app.get('/match', (req, res) => {
 //   res.render('pages/match', {
