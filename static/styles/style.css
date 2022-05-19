@@ -431,3 +431,29 @@ button:active {
   transform: translateY(-150%);
   width: 50px;
 }
+
+/*****************/
+/* Choice button */
+/*****************/
+.btn-choice{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn-choice a {
+  color: white;
+  background-color: #012a68;
+  border-radius: 16px;
+  height: auto;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  text-decoration: none;
+  width: 20%;
+}
+
+.btn-choice a:hover {
+  background-color: #f56f3e;
+}

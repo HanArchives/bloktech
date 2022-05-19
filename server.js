@@ -64,6 +64,20 @@ app.get('/match', (req, res) => {
   res.render('pages/match');
 });
 
+///////////////
+// Add doggo //
+///////////////
+app.get('/add-doggo', (req, res) => {
+  res.render('pages/add-doggo');
+});
+
+///////////////
+// Find doggo //
+///////////////
+app.get('/find-doggo', (req, res) => {
+  res.render('pages/find-doggo');
+});
+
 /////////////////
 // Form Filter //
 /////////////////
@@ -71,7 +85,7 @@ app.get('/match', (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/', async (req, res) => {
+app.post('/mymatch', async (req, res) => {
   const query = req.query.gender;
   const matches = await db.collection('matches').find(query, {}).toArray();
 
@@ -90,6 +104,32 @@ app.post('/', async (req, res) => {
 
   console.log(userMatches);
   res.render('pages/match', { matches: userMatches });
+});
+
+/////////////////
+// Add Doggo //
+/////////////////
+app.post('/doggo/add', async (req, res) => {
+  // ADD DOGGO
+  let doggo = {
+    image: req.body.image,
+    name: req.body.name,
+    gender: req.body.gender,
+    age: req.body.age,
+    size: req.body.size,
+    about: req.body.about,
+  };
+
+  // ADD TO DB
+  await db.collection('matches').insertOne(doggo);
+
+  // GET LATEST LIST OF MATCHES
+  const query = {};
+  const matches = await db.collection('matches').find(query, {}).toArray();
+
+  // RENDER PAGE
+  const title = 'Succesfully added doggo';
+  res.render('pages/match', { title, matches });
 });
 
 /////////////////
