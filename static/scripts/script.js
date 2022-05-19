@@ -26,9 +26,9 @@ function checkAll(selector) {
   // variabel checboxes heeft parameter selector. Dus selecteerd alles
   const checkboxes = document.querySelectorAll(selector);
   for (const checkbox of checkboxes) {
+    checkbox.checked = !this.checked;
     //! betekend het omgekeerde van true/false dit zorgt ervoor dat het allemaal selecteerd en deselecteerd
-    checkbox.checked = !checkbox.checked;
-    //checkbox.checked = !this.checked;
+    //checkbox.checked = !checkbox.checked;
   }
 }
 

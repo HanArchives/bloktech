@@ -16,5 +16,7 @@ module.exports = {
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
     indent: ['off', 'tab'],
+    'no-unused-vars': ['off', { vars: 'local' }],
+    'no-useless-catch': ['off'],
   },
 };
