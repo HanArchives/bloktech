@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const app = express();
 require('dotenv').config();
@@ -8,28 +9,28 @@ const matches = require('./mock-data/matches');
 /////////////
 // MongoDB //
 /////////////
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri =
-//   'mongodb+srv://' +
-//   process.env.DB_USERNAME +
-//   ':' +
-//   process.env.DB_PASS +
-//   '@' +
-//   process.env.DB_HOST +
-//   '/' +
-//   process.env.DB_NAME +
-//   '/?retryWrites=true&w=majority';
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverApi: ServerApiVersion.v1,
-// });
-// // eslint-disable-next-line no-unused-vars
-// client.connect((err) => {
-//   const collection = client.db('PawDoption').collection('matches');
-//   console.log(collection);
-//   // client.close();
-// });
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri =
+  'mongodb+srv://' +
+  process.env.DB_USERNAME +
+  ':' +
+  process.env.DB_PASS +
+  '@' +
+  process.env.DB_HOST +
+  '/' +
+  process.env.DB_NAME +
+  '/?retryWrites=true&w=majority';
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
+client.connect((err) => {
+  console.log('kaas');
+  const collection = client.db('PawDoption').collection('matches');
+  // console.log(collection);
+  // client.close();
+});
 
 ///////////////
 // port 3000 //
@@ -66,6 +67,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/', (req, res) => {
+  // app.post('/', async (req, res) => {
+  // const matches = await db.collection('matches').find(query, {}).toArray();
+  // const query = { name: '' };
+
   const userMatches = matches.filter((match) => {
     // checking if filters are correct
     const ageMatches = req.body.age.includes(match.age);
@@ -88,3 +93,5 @@ app.post('/', (req, res) => {
 app.use((req, res) => {
   res.status(404).render('pages/404');
 });
+
+//await db.collection('matches').insertOne(match);
