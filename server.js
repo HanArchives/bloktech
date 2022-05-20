@@ -91,7 +91,7 @@ app.post('/mymatch', async (req, res) => {
   const queryGender = { gender: { $in: arrayify(req.body.gender) } };
   const querySize = { size: { $in: arrayify(req.body.size) } };
   const queryAge = { age: { $in: arrayify(req.body.age) } };
-  const query = { ...queryGender, ...querySize, ...queryAge };
+  const query = { ...queryGender, ...querySize, ...queryAge }; // 1 obecjt van 3 objecten maken
 
   const matches = await db.collection('matches').find(query).toArray();
   console.log(matches);
@@ -110,6 +110,7 @@ app.post('/doggo/add', async (req, res) => {
     age: req.body.age,
     size: req.body.size,
     about: req.body.about,
+    like: req.body.like,
   };
   // ADD TO DB
   await db.collection('matches').insertOne(doggo);

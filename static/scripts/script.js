@@ -1,20 +1,3 @@
-/// //////////////
-// Menu Button //
-/// //////////////
-const openButton = document.querySelector('.open-info');
-const closeButton = document.querySelector('.close-info');
-const menu = document.querySelector('nav');
-
-const closeMenu = () => {
-  menu.classList.remove('is-open');
-};
-closeButton.addEventListener('click', closeMenu);
-
-const openMenu = () => {
-  menu.classList.add('is-open');
-};
-openButton.addEventListener('click', openMenu);
-
 ////////////////
 // Select All //
 ////////////////
@@ -32,18 +15,24 @@ function checkAll(selector) {
   }
 }
 
-selectAllButtonOne.addEventListener('click', () => {
-  // parameter die je mee geeft aan functie checkAll
-  checkAll('.question-1 input[type="checkbox"]');
-});
+if (selectAllButtonOne) {
+  selectAllButtonOne.addEventListener('click', () => {
+    // parameter die je mee geeft aan functie checkAll
+    checkAll('.question-1 input[type="checkbox"]');
+  });
+}
 
-selectAllButtonTwo.addEventListener('click', () => {
-  checkAll('.question-2 input[type="checkbox"]');
-});
+if (selectAllButtonTwo) {
+  selectAllButtonTwo.addEventListener('click', () => {
+    checkAll('.question-2 input[type="checkbox"]');
+  });
+}
 
-selectAllButtonThree.addEventListener('click', () => {
-  checkAll('.question-3 input[type="checkbox"]');
-});
+if (selectAllButtonThree) {
+  selectAllButtonThree.addEventListener('click', () => {
+    checkAll('.question-3 input[type="checkbox"]');
+  });
+}
 
 /// ///////////////////////////////////
 // Progresive enhancement/disclosure //
@@ -56,6 +45,7 @@ const questionThree = document.querySelector('.third');
 const buttonSubmit = document.querySelector('.btn-submit');
 
 // Onclick show and scroll to next question
+
 buttonNextQuestionAge.addEventListener('click', () => {
   questionTwo.style.display = 'block';
   questionTwo.scrollIntoView({ behavior: 'smooth' });
@@ -153,27 +143,16 @@ async function fetchQuote() {
 
 fetchQuote();
 
-//////////////////////
-// API random image //
-//////////////////////
-async function fetchImage() {
-  const url = 'https://random.dog/woof.json';
-  let response = await fetch(url);
-
-  let image = await response.json();
-
-  let randomImage = document.querySelector('.random-image');
-  randomImage.innerHTML = `<img src="${image.url}" alt="doggo"/>`;
-}
-
-fetchImage();
-
 ////////////
 // loader //
 ////////////
 
+////////////
+// Pop-up //
+////////////
 // const buttonAdd = document.querySelector('.add-submit');
+// const popUp = document.querySelector('.pop-up');
 
-// buttonAdd.addEventListener('click', (event) => {
-//   event.preventDefault();
+// const showPopUp = buttonAdd.addEventListener('click', () => {
+//   popUp.style.display = 'block';
 // });
