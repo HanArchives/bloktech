@@ -1,5 +1,7 @@
-const arrayify = require('array-back'); // om een single optie een array van maken
+const arrayify = require('array-back'); // make a single string an array{}
 const express = require('express');
+const multer = require('multer');
+const upload = multer({ dest: './static/img' });
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 3000;
@@ -91,18 +93,17 @@ app.post('/mymatch', async (req, res) => {
   const queryGender = { gender: { $in: arrayify(req.body.gender) } };
   const querySize = { size: { $in: arrayify(req.body.size) } };
   const queryAge = { age: { $in: arrayify(req.body.age) } };
-  const query = { ...queryGender, ...querySize, ...queryAge }; // 1 obecjt van 3 objecten maken
+  const query = { ...queryGender, ...querySize, ...queryAge }; // make one object of three objects
 
   const matches = await db.collection('matches').find(query).toArray();
-  console.log(matches);
+  //console.log(matches);
   res.render('pages/match', { matches });
-  // console.log(matches);
 });
 
 ///////////////
 // Add Doggo //
 ///////////////
-app.post('/doggo/add', async (req, res) => {
+app.post('/doggo/add', upload.single('image'), async (req, res) => {
   let doggo = {
     image: req.body.image,
     name: req.body.name,
@@ -124,72 +125,12 @@ app.post('/doggo/add', async (req, res) => {
   // res.render('pages/match', { title, matches });
 });
 
+// Checking connection with DB
+connectDB().then(console.log('we have a connection to mongo!'));
+
 /////////////////
 // reponse 404 //
 /////////////////
 app.use((req, res) => {
   res.status(404).render('pages/404');
 });
-
-// Checking connection with DB
-connectDB().then(console.log('we have a connection to mongo!'));
-
-//await db.collection('matches').insertOne(match);
-// WITH MOCK_DATA
-// app.get('/match', (req, res) => {
-//   res.render('pages/match', {
-//     matches,
-//   });
-// });
-
-// // Parse JSON bodies (as sent by API clients) (JS OBJECT MAKEN)
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
-// app.post('/', (req, res) => {
-//   // app.post('/', async (req, res) => {
-//   // const matches = await db.collection('matches').find(query, {}).toArray();
-//   // const query = { name: '' };
-
-//   const userMatches = matches.filter((match) => {
-//     // checking if filters are correct
-//     const ageMatches = req.body.age.includes(match.age);
-//     const sizeMatches = req.body.size.includes(match.size);
-//     const genderMatches = req.body.gender.includes(match.gender);
-
-//     //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
-//     // if true true true = return(show) only valid match
-//     if (ageMatches && sizeMatches && genderMatches) {
-//       return match;
-//     }
-//   });
-
-//   res.render('pages/match', { matches: userMatches });
-// });
-/////////////////////
-// app.post('/mymatch', async (req, res) => {
-//   const query = req.query.gender;
-//   const matches = await db.collection('matches').find(query, {}).toArray();
-
-//   const userMatches = matches.filter((match) => {
-//     // checking if filters are correct true/false
-//     const ageMatches = req.body.age.includes(match.age);
-//     const sizeMatches = req.body.size.includes(match.size);
-//     const genderMatches = req.body.gender.includes(match.gender);
-
-//     //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
-//     // if true true true = return only valid match
-//     if (ageMatches && sizeMatches && genderMatches) {
-//       return match;
-//     }
-//   });
-
-//   console.log(userMatches);
-//   res.render('pages/match', { matches: userMatches });
-// });
-//////////////////////////
-// {
-//   age: { $in: [ 'zero-five', 'six-ten', 'ten-plus' ] },
-// size: { $in: ['small', 'medium', 'large' ] },
-// gender: { $in: ['male', 'female'] },
-//    }
