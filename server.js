@@ -1,3 +1,4 @@
+const arrayify = require('array-back'); // om een single optie een array van maken
 const express = require('express');
 const app = express();
 require('dotenv').config();
@@ -86,31 +87,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/mymatch', async (req, res) => {
-  const query = req.query.gender;
-  const matches = await db.collection('matches').find(query, {}).toArray();
+  console.log(arrayify(req.body.gender));
+  const queryGender = { gender: { $in: arrayify(req.body.gender) } };
+  const querySize = { size: { $in: arrayify(req.body.size) } };
+  const queryAge = { age: { $in: arrayify(req.body.age) } };
+  const query = { ...queryGender, ...querySize, ...queryAge };
 
-  const userMatches = matches.filter((match) => {
-    // checking if filters are correct true/false
-    const ageMatches = req.body.age.includes(match.age);
-    const sizeMatches = req.body.size.includes(match.size);
-    const genderMatches = req.body.gender.includes(match.gender);
-
-    //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
-    // if true true true = return only valid match
-    if (ageMatches && sizeMatches && genderMatches) {
-      return match;
-    }
-  });
-
-  console.log(userMatches);
-  res.render('pages/match', { matches: userMatches });
+  const matches = await db.collection('matches').find(query).toArray();
+  console.log(matches);
+  res.render('pages/match', { matches });
+  // console.log(matches);
 });
 
-/////////////////
+///////////////
 // Add Doggo //
-/////////////////
+///////////////
 app.post('/doggo/add', async (req, res) => {
-  // ADD DOGGO
   let doggo = {
     image: req.body.image,
     name: req.body.name,
@@ -119,7 +111,6 @@ app.post('/doggo/add', async (req, res) => {
     size: req.body.size,
     about: req.body.about,
   };
-
   // ADD TO DB
   await db.collection('matches').insertOne(doggo);
 
@@ -129,7 +120,7 @@ app.post('/doggo/add', async (req, res) => {
 
   // RENDER PAGE
   const title = 'Succesfully added doggo';
-  res.render('pages/match', { title, matches });
+  // res.render('pages/match', { title, matches });
 });
 
 /////////////////
@@ -174,3 +165,30 @@ connectDB().then(console.log('we have a connection to mongo!'));
 
 //   res.render('pages/match', { matches: userMatches });
 // });
+/////////////////////
+// app.post('/mymatch', async (req, res) => {
+//   const query = req.query.gender;
+//   const matches = await db.collection('matches').find(query, {}).toArray();
+
+//   const userMatches = matches.filter((match) => {
+//     // checking if filters are correct true/false
+//     const ageMatches = req.body.age.includes(match.age);
+//     const sizeMatches = req.body.size.includes(match.size);
+//     const genderMatches = req.body.gender.includes(match.gender);
+
+//     //  with: console.log(ageMatches, sizeMatches, genderMatches); you'll see true or false.
+//     // if true true true = return only valid match
+//     if (ageMatches && sizeMatches && genderMatches) {
+//       return match;
+//     }
+//   });
+
+//   console.log(userMatches);
+//   res.render('pages/match', { matches: userMatches });
+// });
+//////////////////////////
+// {
+//   age: { $in: [ 'zero-five', 'six-ten', 'ten-plus' ] },
+// size: { $in: ['small', 'medium', 'large' ] },
+// gender: { $in: ['male', 'female'] },
+//    }

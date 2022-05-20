@@ -457,3 +457,12 @@ button:active {
 .btn-choice a:hover {
   background-color: #f56f3e;
 }
+
+/****************/
+/* Random Image */
+/****************/
+.random-image {
+  visibility: visible;
+  height: 300px;
+  width: auto;
+}
