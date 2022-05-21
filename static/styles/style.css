@@ -446,11 +446,6 @@ button:active {
   }
 }
 
-/* .show-loader {
-  visibility: visible !important;
-} */
-
-
 .loader {
   animation: loader 1s linear infinite;
   border-color: purple;

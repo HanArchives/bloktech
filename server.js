@@ -56,7 +56,7 @@ app.set('views, view');
 ///////////////////////
 // index page render //
 ///////////////////////
-app.get('/', (req, res) => {
+app.get('', (req, res) => {
   res.render('pages/index');
 });
 
