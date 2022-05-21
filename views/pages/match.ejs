@@ -5,9 +5,10 @@
 	<body>
 		<%- include('../components/header'); %>
 			<main>
-				<button>Change my preferences</button>
-				<h2>Your match is: </h2>
-				<%- include('../partials/dog-profile'); %>
+				<%- include('../partials/loading'); %>
+					<a href="/find-doggo">Change my preferences</a>
+					<h2>Your match is: </h2>
+					<%- include('../partials/dog-profile'); %>
 			</main>
 			<%- include('../components/footer'); %>
 				<script src="scripts/menu.js"></script>

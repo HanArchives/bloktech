@@ -415,7 +415,41 @@ button:active {
   align-items: center;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  background-color: lightblue;
+  /* border: #012a68 solid 2px; */
+  border-radius: 40px;
+  height: 645px;
+  transform: translate(0%, 0vh);
+  width: 70%;
+  justify-content: center;
+  animation: hideMe 3s forwards;
+  position: absolute;
+  z-index: 2;
 }
+
+@keyframes hideMe{
+  0%{
+      opacity: 1;
+      height: 645px;
+  }
+  50%{
+      opacity: 1;
+      height: 400px;
+      width: 65%;
+  }
+  100%{
+      opacity: 0;
+      height: 260px;
+      visibility: hidden;
+      width: 60%;
+  }
+}
+
+/* .show-loader {
+  visibility: visible !important;
+} */
+
 
 .loader {
   animation: loader 1s linear infinite;
