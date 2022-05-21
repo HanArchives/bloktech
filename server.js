@@ -56,7 +56,7 @@ app.set('views, view');
 ///////////////////////
 // index page render //
 ///////////////////////
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
   res.render('pages/index');
 });
 
@@ -89,7 +89,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/', async (req, res) => {
-  // console.log(arrayify(req.body.gender));
+  // Selects the documents where the value of a field equals any value in the specified array.
   const queryGender = { gender: { $in: arrayify(req.body.gender) } };
   const querySize = { size: { $in: arrayify(req.body.size) } };
   const queryAge = { age: { $in: arrayify(req.body.age) } };
