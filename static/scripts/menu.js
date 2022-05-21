@@ -1,6 +1,6 @@
-/// //////////////
+/////////////////
 // Menu Button //
-/// //////////////
+/////////////////
 const openButton = document.querySelector('.open-info');
 const closeButton = document.querySelector('.close-info');
 const menu = document.querySelector('nav');

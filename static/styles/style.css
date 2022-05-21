@@ -30,7 +30,7 @@
 /*****************/
 body {
   background-color: var(--bg-color-solid);
-  font-family: "spoof", Arial, Helvetica, sans-serif;
+  font-family: "spoof", Arial, Helvetica, sans-serif;   
 }
 
 header {
@@ -63,6 +63,10 @@ nav {
 
 nav.is-open {
 	transform: translateX(0);
+}
+
+nav p {
+  padding-bottom: 2rem;  
 }
 
 nav button {
@@ -481,10 +485,10 @@ a:hover {
   border-radius: 15px;
   display: none;
   height: 100px;
-  transform: translate(0%, -100vh);
+  transform: translate(0%, -65vh);
   width: 60%;
 }
 
-/* .show-pop-up {
-  display: inline-block;
-} */
+.background-blur {
+  filter: blur(8px);
+}

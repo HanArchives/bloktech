@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
 });
 
 ////////////////
-// match page //
+// Match page //
 ////////////////
 app.get('/match', (req, res) => {
   res.render('pages/match');
@@ -81,14 +81,14 @@ app.get('/find-doggo', (req, res) => {
   res.render('pages/find-doggo');
 });
 
-/////////////////
-// Form Filter //
-/////////////////
+////////////////////////////
+// Form Filter find doggo //
+////////////////////////////
 // Parse JSON bodies (as sent by API clients) (JS OBJECT MAKEN)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/mymatch', async (req, res) => {
+app.post('/', async (req, res) => {
   console.log(arrayify(req.body.gender));
   const queryGender = { gender: { $in: arrayify(req.body.gender) } };
   const querySize = { size: { $in: arrayify(req.body.size) } };
@@ -121,7 +121,7 @@ app.post('/doggo/add', upload.single('image'), async (req, res) => {
   const matches = await db.collection('matches').find(query, {}).toArray();
 
   // RENDER PAGE
-  const title = 'Succesfully added doggo';
+  // const title = 'Succesfully added doggo';
   // res.render('pages/match', { title, matches });
 });
 
