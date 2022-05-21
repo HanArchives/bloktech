@@ -1,23 +1,22 @@
 <form action="/doggo/add" enctype="multipart/form-data" method="post" class="form-add-doggo">
-    <!--<label>Select Image File:</label>-->
-    <p>Upload image</p>
-    <input type="file" name="image">
+    <img class="img-add-doggo" src="img/mainpom.png" alt="Main pop logo">
+    <label class="label">Upload image</label>
+    <input class="upload" type="file" name="image">
     <div>
-        <!-- <label for="name">Name</label><br> -->
-        <p>Name</p>
+        <label for="name" class="label">Name</label>
         <textarea name="name" id="" cols="30" rows="2"></textarea>
     </div>
     <p>Gender</p>
-    <div class="questionnaire-row">
+    <div class="questionnaire-row--add-doggo">
         <div><input name="gender" value="female" type="checkbox" id="female" />
-            <label for="female"><img src="./img/femalew.png" alt="female" /></label>
+            <label for="female">Female</label>
         </div>
         <div><input name="gender" value="male" type="checkbox" id="male" />
-            <label for="male"><img src="./img/malew.png" alt="male" /></label>
+            <label for="male">Male</label>
         </div>
     </div>
     <p>Age</p>
-    <div class="questionnaire-row">
+    <div class="questionnaire-row--add-doggo">
         <div><input name="age" value="zero-five" type="checkbox" id="zero-five" />
             <label for="zero-five">0 - 5</label>
         </div>
@@ -29,7 +28,7 @@
         </div>
     </div>
     <p>Size?</p>
-    <div class="questionnaire-row">
+    <div class="questionnaire-row--add-doggo">
         <div><input name="size" value="small" type="checkbox" id="small" />
             <label for="small">Small</label>
         </div>
@@ -41,8 +40,7 @@
         </div>
     </div>
     <div>
-        <!-- <label for="about">Description</label><br> -->
-        <p>Description</p>
+        <label for="about" class="label">Description</label>
         <textarea name="about" id="" cols="30" rows="10"></textarea>
     </div>
     <button class="add-submit">Add doggo</button>

@@ -30,7 +30,7 @@
 /*****************/
 body {
   background-color: var(--bg-color-solid);
-  font-family: "spoof", Arial, Helvetica, sans-serif;   
+  font-family: "spoof", Arial, Helvetica, sans-serif; 
 }
 
 header {
@@ -105,7 +105,7 @@ form {
 }
 
 form p {
-  margin: 0;
+  margin: 1rem;
 }
 
 .questionnaire {
@@ -117,7 +117,7 @@ form p {
   flex-direction: column;
   margin-bottom: 2rem;
   min-width: 320px;
-  padding: 1rem;
+  padding-bottom: 1rem;
   width: 60%;
 }
 
@@ -151,6 +151,12 @@ form p {
   flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 2rem;
+}
+.questionnaire-row--add-doggo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .questionnaire-row img {
@@ -209,7 +215,7 @@ label {
   cursor: pointer;
   display: block;
   margin: 10px;
-  padding: 1rem;
+  padding: .5rem;
   position: relative;
 }
 
@@ -254,13 +260,45 @@ label:active {
   animation:slide 6s linear infinite;
   background-image: linear-gradient(90deg, #18b8ed 0%, #e8c00e 49%, #f33b3b 80%, #18b8ed 100%);
   margin: auto;
-  /* width: 40%; */
 }
 
 @keyframes slide {
   to {
     background-position:20vw;
   }
+}
+
+.label {
+  background-color: rgb(251, 251, 242);
+  border: none;
+  box-shadow: none;
+  color: black;
+  text-align: center;
+}
+
+/*************/
+/* Add doggo */
+/*************/
+.upload {
+  background-color: lightsalmon;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.form-add-doggo{
+  background-color: rgb(251, 251, 242);
+  border-radius: 15px;
+  width: 90%;
+}
+
+.form-add-doggo button {
+  margin-bottom: 2rem;
+}
+
+.img-add-doggo {
+  height: 120px;
+  padding-top: 2rem;
+  width: auto;
 }
 
 /**********/
@@ -417,7 +455,6 @@ button:active {
   flex-direction: column;
   text-align: center;
   background-color: lightblue;
-  /* border: #012a68 solid 2px; */
   border-radius: 40px;
   height: 645px;
   transform: translate(0%, 0vh);
@@ -490,6 +527,7 @@ a {
   text-align: center;
   text-decoration: none;
   width: 20%;
+  word-break: break-all;
 }
 
 a:hover {
@@ -520,4 +558,21 @@ a:hover {
 
 .background-blur {
   filter: blur(8px);
+}
+
+/*********/
+/* Media */
+/*********/
+@media (min-width: 30em) {
+  label {
+  padding:1rem; 
+  }
+
+  .questionnaire {
+  padding: 0; 
+  }
+
+  .form-add-doggo {
+    width: 60%;
+  }
 }
