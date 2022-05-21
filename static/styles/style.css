@@ -23,11 +23,26 @@
   --bg-color-royal-blue: royalblue ;
   --bg-color-next-button: #eda340;
   --bg-color-next-button-secondary: #ebb165;
+  --color-h1: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #000;
+    --color-secondary: #fff;
+    --color-menu: #2a2b2b;
+    --bg-color-solid: #000000;
+    --color-h1: #2596be;
+  }
 }
 
 /*****************/
 /* CODE FOR BODY */
 /*****************/
+h1 {
+  color: var(--color-h1);
+}
+
 body {
   background-color: var(--bg-color-solid);
   font-family: "spoof", Arial, Helvetica, sans-serif; 
@@ -260,6 +275,7 @@ label:active {
   animation:slide 6s linear infinite;
   background-image: linear-gradient(90deg, #18b8ed 0%, #e8c00e 49%, #f33b3b 80%, #18b8ed 100%);
   margin: auto;
+  width: 80%;
 }
 
 @keyframes slide {
@@ -569,7 +585,7 @@ a:hover {
   }
 
   .questionnaire {
-  padding: 0; 
+  padding-bottom: 2rem; 
   }
 
   .form-add-doggo {
