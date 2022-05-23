@@ -1,13 +1,36 @@
 const arrayify = require('array-back'); // make a single string an array{}
 const express = require('express');
 const multer = require('multer');
-const upload = multer({ dest: './static/img' });
+// const upload = multer({ dest: './static/img' });
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 3000;
-// const url = require('url'); // hierdoor kan de URL uitgelezen worden http://localhost:3000/match?dogID=2
-// const matches = require('./mock-data/matches'); //mock nu niet nodig
+// const bodyParser = require('body-parser');
+// app.use(bodyParser.urlencoded({ extended: true }));
 let db = null;
+
+//////////////
+const path = require('path');
+const fs = require('fs');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './static/img');
+  },
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + '-' + Date.now() + path.extname(file.originalname) // giving name with time and original name
+    );
+  },
+});
+
+var upload = multer({
+  //
+  storage: storage,
+});
+
+////////////
 
 /////////////
 // MongoDB //
@@ -103,7 +126,28 @@ app.post('/', async (req, res) => {
 ///////////////
 // Add Doggo //
 ///////////////
-app.post('/doggo/add', upload.single('image'), async (req, res) => {
+
+/////////////////test test test
+app.post('/doggo/add', upload.single('image'), async (req, res, next) => {
+  // const img = fs.readFileSync(req.file.path);
+
+  // const finalImg = {
+  //   contentType: req.file.mimetype,
+  //   path: req.file.path,
+  // };
+
+  // //insert the image to
+  // db.collection('matches').insertOne(finalImg, (err, result) => {
+  //   console.log(result);
+
+  //   if (err) return console.log(err);
+  //   console.log('saved to db');
+
+  //   res.contentType(finalImg.contentType);
+  //   //res.send(finalImg.image);
+  // });
+  // ///////////////////////////end of test
+
   let doggo = {
     image: req.body.image,
     name: req.body.name,
