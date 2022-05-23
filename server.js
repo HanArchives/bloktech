@@ -9,34 +9,11 @@ const port = process.env.PORT || 3000;
 // app.use(bodyParser.urlencoded({ extended: true }));
 let db = null;
 
-//////////////
-const path = require('path');
-const fs = require('fs');
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './static/img');
-  },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + '-' + Date.now() + path.extname(file.originalname) // giving name with time and original name
-    );
-  },
-});
-
-var upload = multer({
-  //
-  storage: storage,
-});
-
-////////////
-
 /////////////
 // MongoDB //
 /////////////
 const { MongoClient } = require('mongodb');
-const { ObjectId } = require('mongodb');
+// const { ObjectId } = require('mongodb');
 
 async function connectDB() {
   const uri =
@@ -62,6 +39,29 @@ async function connectDB() {
     throw error;
   }
 }
+////////////
+// MULTER //
+////////////
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './static/img'); // store here
+  },
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      Date.now() + file.originalname // giving name and original name
+    );
+  },
+});
+
+const upload = multer({
+  //
+  storage: storage,
+});
+
+////////////
 
 ///////////////
 // port 3000 //
@@ -98,11 +98,18 @@ app.get('/add-doggo', (req, res) => {
   res.render('pages/add-doggo');
 });
 
-///////////////
+////////////////
 // Find doggo //
-///////////////
+////////////////
 app.get('/find-doggo', (req, res) => {
   res.render('pages/find-doggo');
+});
+
+////////////////
+// Likes //
+////////////////
+app.get('/likes', (req, res) => {
+  res.render('pages/likes');
 });
 
 ////////////////////////////
@@ -128,35 +135,19 @@ app.post('/', async (req, res) => {
 // Add Doggo //
 ///////////////
 
-/////////////////test test test
 app.post('/doggo/add', upload.single('image'), async (req, res, next) => {
-  // const img = fs.readFileSync(req.file.path);
-
-  // const finalImg = {
-  //   contentType: req.file.mimetype,
-  //   path: req.file.path,
-  // };
-
-  // //insert the image to
-  // db.collection('matches').insertOne(finalImg, (err, result) => {
-  //   console.log(result);
-
-  //   if (err) return console.log(err);
-  //   console.log('saved to db');
-
-  //   res.contentType(finalImg.contentType);
-  //   //res.send(finalImg.image);
-  // });
-  // ///////////////////////////end of test
+  const finalImg = {
+    path: req.file.path,
+  };
 
   let doggo = {
-    image: req.body.image,
+    image: req.file.filename,
     name: req.body.name,
     gender: req.body.gender,
     age: req.body.age,
     size: req.body.size,
     about: req.body.about,
-    like: req.body.like,
+    like: false,
   };
   // ADD TO DB
   await db.collection('matches').insertOne(doggo);
