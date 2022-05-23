@@ -50,6 +50,7 @@ async function connectDB() {
     process.env.DB_NAME +
     '/?retryWrites=true&w=majority';
 
+  console.log(uri);
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
