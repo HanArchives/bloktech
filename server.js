@@ -13,7 +13,7 @@ let db = null;
 // MongoDB //
 /////////////
 const { MongoClient } = require('mongodb');
-// const { ObjectId } = require('mongodb');
+const { ObjectId } = require('mongodb');
 
 async function connectDB() {
   const uri =
@@ -42,7 +42,7 @@ async function connectDB() {
 ////////////
 // MULTER //
 ////////////
-const path = require('path');
+// const path = require('path');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -105,11 +105,19 @@ app.get('/find-doggo', (req, res) => {
   res.render('pages/find-doggo');
 });
 
-////////////////
-// Likes //
-////////////////
-app.get('/likes', (req, res) => {
-  res.render('pages/likes');
+//////////////////
+// Likes render //
+//////////////////
+app.get('/likes', async (req, res) => {
+  const likes = await db
+    .collection('matches')
+    .find({
+      like: true,
+    })
+    .toArray();
+  res.render('pages/likes', {
+    likes,
+  });
 });
 
 ////////////////////////////
@@ -127,18 +135,17 @@ app.post('/', async (req, res) => {
   const query = { ...queryGender, ...querySize, ...queryAge }; // make one object of three objects
 
   const matches = await db.collection('matches').find(query).toArray();
-  console.log(matches);
+  // console.log(matches);
   res.render('pages/match', { matches });
 });
 
 ///////////////
 // Add Doggo //
 ///////////////
-
 app.post('/doggo/add', upload.single('image'), async (req, res, next) => {
-  const finalImg = {
-    path: req.file.path,
-  };
+  // const finalImg = {
+  //   path: req.file.path,
+  // };
 
   let doggo = {
     image: req.file.filename,
@@ -163,6 +170,43 @@ app.post('/doggo/add', upload.single('image'), async (req, res, next) => {
 
 // Checking connection with DB
 connectDB().then(console.log('we have a connection to mongo!'));
+
+////////////////////////////
+// Add doggo to favorites //
+////////////////////////////
+app.post('/likedoggo', async (req, res) => {
+  await db.collection('matches').updateOne(
+    {
+      _id: ObjectId(req.body.like),
+    },
+    {
+      $set: {
+        like: true,
+      },
+    }
+  );
+
+  res.redirect('/likes');
+});
+
+/////////////////////////////////
+// remove doggo from favorites //
+/////////////////////////////////
+app.post('/removedoggo', async (req, res) => {
+  await db.collection('matches').updateOne(
+    {
+      _id: ObjectId(req.body.remove),
+    },
+    {
+      $set: {
+        like: false,
+      },
+    }
+  );
+
+  res.redirect('/likes');
+});
+//////////////////////////////////////////////////
 
 /////////////////
 // reponse 404 //
