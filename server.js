@@ -61,8 +61,6 @@ const upload = multer({
   storage: storage,
 });
 
-////////////
-
 ///////////////
 // port 3000 //
 ///////////////
@@ -135,7 +133,6 @@ app.post('/', async (req, res) => {
   const query = { ...queryGender, ...querySize, ...queryAge }; // make one object of three objects
 
   const matches = await db.collection('matches').find(query).toArray();
-  // console.log(matches);
   res.render('pages/match', { matches });
 });
 
@@ -206,7 +203,6 @@ app.post('/removedoggo', async (req, res) => {
 
   res.redirect('/likes');
 });
-//////////////////////////////////////////////////
 
 /////////////////
 // reponse 404 //
