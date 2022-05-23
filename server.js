@@ -187,7 +187,7 @@ app.post('/likedoggo', async (req, res) => {
 });
 
 /////////////////////////////////
-// remove doggo from favorites //
+// Remove doggo from favorites //
 /////////////////////////////////
 app.post('/removedoggo', async (req, res) => {
   await db.collection('matches').updateOne(
