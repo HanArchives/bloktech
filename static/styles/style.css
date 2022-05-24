@@ -40,7 +40,46 @@
 /* CODE FOR BODY */
 /*****************/
 h1 {
-  color: var(--color-h1);
+  animation: layers 3s ease-in, movement 3s ease-in;
+  animation-fill-mode: forwards;
+  color: rgb(253, 212, 196);
+}
+
+@keyframes layers {
+  0% {
+    text-shadow: none;
+  }
+  20% {
+    text-shadow: 3px 3px 0 #29c5f6;
+  }
+  40% {
+    text-shadow: 3px 3px 0 #29c5f6,
+      6px 6px 0 #3a9bdc;
+  }
+  60% {
+    text-shadow: 3px 3px 0 #29c5f6,
+      6px 6px 0 #3a9bdc, 9px 9px #5579c6;
+  }
+  80% {
+    text-shadow: 3px 3px 0 #29c5f6,
+      6px 6px 0 #3a9bdc, 9px 9px #5579c6,
+      12px 12px 0 #1260cc;
+  }
+  100% {
+    text-shadow: 3px 3px 0 #29c5f6,
+      6px 6px 0 #3a9bdc, 9px 9px #5579c6,
+      12px 12px 0 #1260cc;
+  }
+}
+
+
+@keyframes movement {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(-12px, -12px);
+  }
 }
 
 body {
@@ -475,6 +514,7 @@ button:active {
 /**********/
 .loading {
   align-items: center;
+  animation: hideMe 3s forwards;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -484,7 +524,6 @@ button:active {
   transform: translate(0%, 0vh);
   width: 70%;
   justify-content: center;
-  animation: hideMe 3s forwards;
   position: absolute;
   z-index: 2;
 }
@@ -570,12 +609,12 @@ a:hover {
 /* pop up */
 /**********/
 .pop-up {
-  text-align: center;
   background-color: var(--color-secondary);
   border: #012a68 solid 2px;
   border-radius: 15px;
   display: none;
   height: 100px;
+  text-align: center;
   transform: translate(0%, -65vh);
   width: 60%;
 }
