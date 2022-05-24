@@ -1,12 +1,9 @@
 const arrayify = require('array-back'); // make a single string an array{}
 const express = require('express');
 const multer = require('multer');
-// const upload = multer({ dest: './static/img' });
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 3000;
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.urlencoded({ extended: true }));
 let db = null;
 
 /////////////
@@ -27,7 +24,6 @@ async function connectDB() {
     process.env.DB_NAME +
     '/?retryWrites=true&w=majority';
 
-  console.log(uri);
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -42,7 +38,6 @@ async function connectDB() {
 ////////////
 // MULTER //
 ////////////
-// const path = require('path');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
