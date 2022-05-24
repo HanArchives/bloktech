@@ -137,6 +137,16 @@ nav button {
   width: fit-content;
 }
 
+.nav-buttons-second {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-buttons-second a {
+width: 80%;
+}
+
 header button {
   background-color: var(--bg-color-royal-blue);
   border-radius: 5px;
@@ -648,5 +658,9 @@ a:hover {
     flex-wrap: wrap;
     justify-content: flex-end;
     margin-top: -4rem;
+  }
+
+  .nav-buttons-second {
+    display: none;
   }
 }
