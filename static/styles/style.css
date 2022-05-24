@@ -144,7 +144,7 @@ nav button {
 }
 
 .nav-buttons-second a {
-width: 80%;
+  width: 80%;
 }
 
 header button {
@@ -599,7 +599,7 @@ a {
   margin: 1rem;
   text-align: center;
   text-decoration: none;
-  width: 20%;
+  width: 80%;
   word-break: break-all;
 }
 
@@ -662,5 +662,9 @@ a:hover {
 
   .nav-buttons-second {
     display: none;
+  }
+
+  a {
+    width: 30%;
   }
 }
