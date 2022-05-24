@@ -89,6 +89,14 @@ nav button {
   color: var(--color-secondary);
   width: fit-content;
 }
+.nav-buttons {
+  display: none;
+}
+
+.nav-buttons a {
+  background-color: transparent;
+  width: fit-content;
+}
 
 header button {
   background-color: var(--bg-color-royal-blue);
@@ -590,5 +598,16 @@ a:hover {
 
   .form-add-doggo {
     width: 60%;
+  }
+}
+
+@media (min-width: 40em) {
+  .nav-buttons {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: -4rem;
   }
 }
