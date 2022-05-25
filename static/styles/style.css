@@ -26,7 +26,7 @@
   --color-h1: #000;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --color-primary: #000;
     --color-secondary: #fff;
@@ -34,7 +34,7 @@
     --bg-color-solid: #000000;
     --color-h1: #2596be;
   }
-} */
+}
 
 /*****************/
 /* CODE FOR BODY */
