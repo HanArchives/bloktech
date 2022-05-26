@@ -35,13 +35,16 @@ async function connectDB() {
     throw error;
   }
 }
+
+// Checking connection with DB
+connectDB().then(console.log('we have a connection to mongo!'));
+
 ////////////
 // MULTER //
 ////////////
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './static/img'); // store here
+    cb(null, './static/img/dogs'); // store here
   },
   filename: function (req, file, cb) {
     cb(
@@ -70,44 +73,35 @@ app.use(express.static('static')); // show static files on localhost
 app.set('view engine', 'ejs'); // to use ejs
 app.set('views, view');
 
-///////////////////////
-// index page render //
-///////////////////////
+/////////////////////
+// Pages rendering //
+/////////////////////
+// Index page //
 app.get('/', (req, res) => {
   res.render('pages/index');
 });
 
-////////////////
 // Match page //
-////////////////
 app.get('/match', (req, res) => {
   res.render('pages/match');
 });
 
-///////////////////
 // Redirect page //
-///////////////////
 app.get('/redirect', (req, res) => {
   res.render('pages/redirect');
 });
 
-///////////////
-// Add doggo //
-///////////////
+// Add doggo page //
 app.get('/add-doggo', (req, res) => {
   res.render('pages/add-doggo');
 });
 
-////////////////
-// Find doggo //
-////////////////
+// Find doggo page //
 app.get('/find-doggo', (req, res) => {
   res.render('pages/find-doggo');
 });
 
-//////////////////
-// Likes render //
-//////////////////
+// Likes page //
 app.get('/likes', async (req, res) => {
   const likes = await db
     .collection('matches')
@@ -142,10 +136,6 @@ app.post('/', async (req, res) => {
 // Add Doggo //
 ///////////////
 app.post('/doggo/add', upload.single('image'), async (req, res, next) => {
-  // const finalImg = {
-  //   path: req.file.path,
-  // };
-
   let doggo = {
     image: req.file.filename,
     name: req.body.name,
@@ -166,9 +156,6 @@ app.post('/doggo/add', upload.single('image'), async (req, res, next) => {
   // const title = 'Succesfully added doggo';
   // res.render('pages/match', { title, matches });
 });
-
-// Checking connection with DB
-connectDB().then(console.log('we have a connection to mongo!'));
 
 ////////////////////////////
 // Add doggo to favorites //
