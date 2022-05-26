@@ -349,6 +349,21 @@ label:active {
   text-align: center;
 }
 
+select {
+  font-family: "spoof", Arial, Helvetica, sans-serif;
+  height: 1.5rem;
+  width: 100%;
+}
+
+::placeholder {
+  color: rgb(175, 175, 175);
+  font-family: "spoof", Arial, Helvetica, sans-serif;
+}
+
+textarea {
+  font-family: "spoof", Arial, Helvetica, sans-serif;
+}
+
 /*************/
 /* Add doggo */
 /*************/
@@ -358,7 +373,7 @@ label:active {
   border-radius: 15px;
 }
 
-.form-add-doggo{
+.form-add-doggo {
   background-color: rgb(251, 251, 242);
   border-radius: 15px;
   width: 90%;
@@ -372,6 +387,20 @@ label:active {
   height: 120px;
   padding-top: 2rem;
   width: auto;
+}
+
+/***************/
+/* Survey-form */
+/***************/
+.form-survey {
+  background-color: rgb(251, 251, 242);
+  border-radius: 15px;
+  text-align: center;
+  width: 60%;
+}
+
+.form-survey button {
+  margin-bottom: 2rem;
 }
 
 /**********/
