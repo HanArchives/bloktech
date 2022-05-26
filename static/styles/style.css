@@ -402,6 +402,10 @@ button:active {
   box-shadow:inset 2px 2px 2px 2px rgb(154, 89, 40);
 }
 
+.btn-like {
+  margin-bottom: 1rem;
+}
+
 /**************/
 /* dog-profile*/
 /**************/

@@ -46,7 +46,7 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(
       null,
-      Date.now() + file.originalname // giving name and original name
+      Date.now() + file.originalname // date and original name
     );
   },
 });
@@ -84,6 +84,13 @@ app.get('/match', (req, res) => {
   res.render('pages/match');
 });
 
+///////////////////
+// Redirect page //
+///////////////////
+app.get('/redirect', (req, res) => {
+  res.render('pages/redirect');
+});
+
 ///////////////
 // Add doggo //
 ///////////////
@@ -116,7 +123,7 @@ app.get('/likes', async (req, res) => {
 ////////////////////////////
 // Form Filter find doggo //
 ////////////////////////////
-// Parse JSON bodies (as sent by API clients) (JS OBJECT MAKEN)
+// Parse JSON bodies (as sent by API clients) (It's making a JS object)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -184,7 +191,7 @@ app.post('/likedoggo', async (req, res) => {
 /////////////////////////////////
 // Remove doggo from favorites //
 /////////////////////////////////
-app.post('/removedoggo', async (req, res) => {
+app.post('/remove-favorite', async (req, res) => {
   await db.collection('matches').updateOne(
     {
       _id: ObjectId(req.body.remove),
@@ -197,6 +204,17 @@ app.post('/removedoggo', async (req, res) => {
   );
 
   res.redirect('/likes');
+});
+
+////////////////////////
+// DELETE DOG FROM DB //
+////////////////////////
+app.post('/delete', async (req, res) => {
+  await db.collection('matches').deleteOne({
+    _id: ObjectId(req.body.delete),
+  });
+
+  res.redirect('/redirect');
 });
 
 /////////////////

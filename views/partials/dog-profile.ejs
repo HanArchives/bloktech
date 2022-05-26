@@ -1,7 +1,7 @@
 <section class="dog-profile">
     <% matches.forEach(function(matches) { %>
         <div class="dog-profile__img-container">
-            <img src="/img/<%= matches.image %>" alt="doggo">
+            <img src="/img/dogs/<%= matches.image %>" alt="doggo">
         </div>
         <div class="dog-profile__content">
             <h2>
@@ -27,6 +27,11 @@
                 </ul>
                 <form action="/likedoggo" method="post">
                     <button name="like" type="submit" value="<%= matches._id %>" class="btn-like">Like</button>
+                </form>
+                <form action="/delete" method="POST">
+                    <button name="delete" type="submit" id="delete" value="<%= matches._id %>">
+                        Adopt!
+                    </button>
                 </form>
             </div>
         </div>
