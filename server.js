@@ -1,4 +1,4 @@
-const arrayify = require('array-back'); // make a single string an array{}
+const arrayify = require('array-back'); // make a single string an array
 const express = require('express');
 const multer = require('multer');
 const app = express();
@@ -47,10 +47,7 @@ const storage = multer.diskStorage({
     cb(null, './static/img/dogs'); // store here
   },
   filename: function (req, file, cb) {
-    cb(
-      null,
-      Date.now() + file.originalname // date and original name
-    );
+    cb(null, Date.now() + file.originalname);
   },
 });
 
@@ -122,7 +119,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/', async (req, res) => {
-  // Selects the documents where the value of a field equals any value in the specified array.
+  // $in selects the documents where the value of a field equals any value in the specified array.
   const queryGender = { gender: { $in: arrayify(req.body.gender) } };
   const querySize = { size: { $in: arrayify(req.body.size) } };
   const queryAge = { age: { $in: arrayify(req.body.age) } };
@@ -151,10 +148,6 @@ app.post('/doggo/add', upload.single('image'), async (req, res, next) => {
   // GET LATEST LIST OF MATCHES
   const query = {};
   const matches = await db.collection('matches').find(query, {}).toArray();
-
-  // RENDER PAGE
-  // const title = 'Succesfully added doggo';
-  // res.render('pages/match', { title, matches });
 });
 
 ////////////////////////////

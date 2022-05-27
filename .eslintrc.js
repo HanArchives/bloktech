@@ -5,7 +5,6 @@ module.exports = {
     commonjs: true,
     node: true,
   },
-  // extends: ['airbnb-base'],
   extends: ['eslint:recommended'],
 
   parserOptions: {

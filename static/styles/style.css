@@ -1,14 +1,14 @@
-/****************/
-/* GENERAL CODE */
-/****************/
+/*************/
+/* FONT CODE */
+/*************/
 @font-face {
   font-family: 'spoof';
   src: url(../font/Spoof-Regular.woff);
 }
 
-/********************/
-/* CODE FOR "ROOT"  */
-/********************/
+/***********************/
+/* CODE COLORS "ROOT"  */
+/***********************/
 :root {
   --color-primary: #000;
   --color-secondary: #fff;
@@ -30,7 +30,10 @@
   --color-h1: #000;
 }
 
-/* @media (prefers-color-scheme: dark) {
+/*************/
+/* DARKMODE  */
+/*************/
+@media (prefers-color-scheme: dark) {
   :root {
     --color-primary: #000;
     --color-secondary: #fff;
@@ -38,49 +41,11 @@
     --bg-color-solid: #000000;
     --color-h1: #2596be;
   }
-} */
-
-/*****************/
-/* CODE FOR BODY */
-/*****************/
-h1 {
-  animation: layers 3s ease-in, movement 3s ease-in;
-  animation-fill-mode: forwards;
-  color: rgb(253, 212, 196);
 }
 
-@keyframes layers {
-  0% {
-    text-shadow: none;
-  }
-  20% {
-    text-shadow: 3px 3px 0 #29c5f6;
-  }
-  40% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc;
-  }
-  60% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6;
-  }
-  80% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6,
-      12px 12px 0 #1260cc;
-  }
-  100% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6,
-      12px 12px 0 #1260cc;
-  }
-}
-
-@keyframes movement {
-  0% {
-    transform: translate(0px, 0px);
-  }
-  100% {
-    transform: translate(-12px, -12px);
-  }
-}
-
+/****************/
+/* GENERAL CODE */
+/****************/
 body {
   background-color: var(--bg-color-solid);
   font-family: 'spoof', Arial, Helvetica, sans-serif;
@@ -98,9 +63,7 @@ main {
   margin-bottom: 3rem;
 }
 
-/***********************/
 /* CODE FOR HEADER/NAV */
-/***********************/
 nav {
   background: var(--bg-color-reverse);
   bottom: 0;
@@ -153,9 +116,7 @@ header button {
   width: fit-content;
 }
 
-/*******************/
 /* CODE FOR FOOTER */
-/*******************/
 footer {
   bottom: 0;
   left: 0;
@@ -164,9 +125,47 @@ footer {
   width: 100%;
 }
 
-/**************************************/
-/* CODE FOR MAIN_SECTION QUESTIONAIIRE*/
-/**************************************/
+h1 {
+  animation: layers 3s ease-in, movement 3s ease-in;
+  animation-fill-mode: forwards;
+  color: rgb(253, 212, 196);
+}
+
+@keyframes layers {
+  0% {
+    text-shadow: none;
+  }
+  20% {
+    text-shadow: 3px 3px 0 #29c5f6;
+  }
+  40% {
+    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc;
+  }
+  60% {
+    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6;
+  }
+  80% {
+    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6,
+      12px 12px 0 #1260cc;
+  }
+  100% {
+    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6,
+      12px 12px 0 #1260cc;
+  }
+}
+
+@keyframes movement {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(-12px, -12px);
+  }
+}
+
+/*********/
+/* Forms */
+/*********/
 form {
   width: 100%;
   display: flex;
@@ -179,6 +178,101 @@ form p {
   margin: 1rem;
 }
 
+label {
+  background-color: var(--bg-color-button);
+  border: 2px solid var(--bg-color-button);
+  border-radius: 15px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  color: var(--color-secondary);
+  cursor: pointer;
+  display: block;
+  margin: 10px;
+  padding: 0.5rem;
+  position: relative;
+}
+
+label:before {
+  display: block;
+}
+
+div input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+input[type='checkbox']:focus + label {
+  border: 2px solid red;
+}
+
+input[type='submit']:focus + label {
+  border: 2px solid red;
+}
+
+:checked + label {
+  background-color: var(--bg-color-button-secondary);
+  border: 2px solid var(--bg-color-button-secondary);
+  box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3), inset 2px 2px 2px 2px black;
+}
+
+:checked + label img {
+  z-index: -1;
+}
+
+label:focus {
+  background-color: var(--bg-color-menu);
+}
+
+label:active {
+  box-shadow: inset 2px 2px 2px 2px black;
+}
+
+/* Show my match button */
+.btn-submit label {
+  animation: slide 6s linear infinite;
+  background-image: linear-gradient(
+    90deg,
+    #18b8ed 0%,
+    #e8c00e 49%,
+    #f33b3b 80%,
+    #18b8ed 100%
+  );
+  margin: auto;
+  width: 80%;
+}
+
+@keyframes slide {
+  to {
+    background-position: 20vw;
+  }
+}
+
+.label {
+  background-color: rgb(251, 251, 242);
+  border: none;
+  box-shadow: none;
+  color: black;
+  text-align: center;
+}
+
+select {
+  font-family: 'spoof', Arial, Helvetica, sans-serif;
+  height: 1.5rem;
+  width: 100%;
+}
+
+::placeholder {
+  color: rgb(175, 175, 175);
+  font-family: 'spoof', Arial, Helvetica, sans-serif;
+}
+
+textarea {
+  font-family: 'spoof', Arial, Helvetica, sans-serif;
+}
+
+/*********************************************/
+/* code for adopt a doggo/questionnaire form */
+/*********************************************/
 .questionnaire {
   align-items: center;
   background-color: var(--color-secondary);
@@ -235,7 +329,7 @@ form p {
   width: 100px;
 }
 
-/* hide the question 2 and 3 */
+/* hide the question 2 and 3 with JS */
 .hide {
   display: none;
   text-align: center;
@@ -250,7 +344,7 @@ form p {
   width: 31%;
 }
 
-/* show select all buttons */
+/* show select all buttons with JS */
 .select-all-one,
 .select-all-two,
 .select-all-three {
@@ -275,97 +369,6 @@ form p {
 .btn-next-1:hover,
 .btn-next-2:hover {
   background-color: var(--bg-color-next-button-secondary);
-}
-
-label {
-  background-color: var(--bg-color-button);
-  border: 2px solid var(--bg-color-button);
-  border-radius: 15px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  color: var(--color-secondary);
-  cursor: pointer;
-  display: block;
-  margin: 10px;
-  padding: 0.5rem;
-  position: relative;
-}
-
-label:before {
-  display: block;
-}
-
-div input {
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-input[type='checkbox']:focus + label {
-  border: 2px solid red;
-}
-
-input[type='submit']:focus + label {
-  border: 2px solid red;
-}
-
-:checked + label {
-  background-color: var(--bg-color-button-secondary);
-  border: 2px solid var(--bg-color-button-secondary);
-  box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3), inset 2px 2px 2px 2px black;
-}
-
-:checked + label img {
-  z-index: -1;
-}
-
-label:focus {
-  background-color: var(--bg-color-menu);
-}
-
-label:active {
-  box-shadow: inset 2px 2px 2px 2px black;
-}
-
-.btn-submit label {
-  animation: slide 6s linear infinite;
-  background-image: linear-gradient(
-    90deg,
-    #18b8ed 0%,
-    #e8c00e 49%,
-    #f33b3b 80%,
-    #18b8ed 100%
-  );
-  margin: auto;
-  width: 80%;
-}
-
-@keyframes slide {
-  to {
-    background-position: 20vw;
-  }
-}
-
-.label {
-  background-color: rgb(251, 251, 242);
-  border: none;
-  box-shadow: none;
-  color: black;
-  text-align: center;
-}
-
-select {
-  font-family: 'spoof', Arial, Helvetica, sans-serif;
-  height: 1.5rem;
-  width: 100%;
-}
-
-::placeholder {
-  color: rgb(175, 175, 175);
-  font-family: 'spoof', Arial, Helvetica, sans-serif;
-}
-
-textarea {
-  font-family: 'spoof', Arial, Helvetica, sans-serif;
 }
 
 /*************/
@@ -439,13 +442,36 @@ button:active {
   margin-bottom: 1rem;
 }
 
-/**************/
-/* dog-profile*/
-/**************/
+/* Choice button */
+.btn-choice {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+a {
+  color: white;
+  background-color: #012a68;
+  border-radius: 16px;
+  height: auto;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  text-decoration: none;
+  width: 80%;
+  word-break: break-all;
+}
+
+a:hover {
+  background-color: #f56f3e;
+}
+
+/***************/
+/* dog-profile */
+/***************/
 .dog-profile {
-  /* background-color: var(--color-secondary); */
   border-radius: 5px;
-  /* box-shadow: 0 4px 14px 0 rgba(0 0 0 / 25%); */
   display: flex;
   flex-direction: column;
   font-size: 0.875rem;
@@ -619,33 +645,6 @@ button:active {
   height: 50px;
   transform: translateY(-150%);
   width: 50px;
-}
-
-/*****************/
-/* Choice button */
-/*****************/
-.btn-choice {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-a {
-  color: white;
-  background-color: #012a68;
-  border-radius: 16px;
-  height: auto;
-  padding: 1rem;
-  margin: 1rem;
-  text-align: center;
-  text-decoration: none;
-  width: 80%;
-  word-break: break-all;
-}
-
-a:hover {
-  background-color: #f56f3e;
 }
 
 /****************/
