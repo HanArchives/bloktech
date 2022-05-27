@@ -70,6 +70,12 @@ DB_PASS= <password>
 
 ```
 
+### ✅ Start
+Congratulations! The last step to run this application is to run the following line in your terminal:
+```
+npm run dev
+```
+
 ## 🗃️ Database
 I worked with MongoDB for my database. If you want to read more about my database and the structure please read [application](https://github.com/HanArchives/bloktech/wiki//structure) and [database](https://github.com/HanArchives/bloktech/wiki//database) structure in my wiki.  
 ## 📚 Documentation
