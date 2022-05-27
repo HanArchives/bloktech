@@ -1,5 +1,5 @@
 # PawDoption 🐕
-<img src="img/process/pawdoption1.png" alt="PawDoption" width="100%" height="auto">
+<img src="/static/img/process/pawdoption1.png" alt="PawDoption" width="100%" height="auto">
 
 ## About this project
 This school project is about building a feature for a matching application that is build with front-end and back-end. 
