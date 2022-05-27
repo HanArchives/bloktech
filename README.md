@@ -1,22 +1,31 @@
-# PawDoption: WORK IN PROGRESS
+# PawDoption 🐕
+<img src="img/process/pawdoption1.png" alt="PawDoption" width="100%" height="auto">
 
 ## About this project
+This school project is about building a feature for a matching application that is build with front-end and back-end. 
+OBS: Just know that it isn't a complete matching application but just a feature/part of an application. 
 
-### Concept and Feature
+### Concept and Feature 🐶
+My concept is about users that want to adopt a dog based on their preferences. 
+* My main focus is filtering. The user can check some questions and based on the answers there will be a list of dogs that match the user preferences. * The user can also like a dog. The liked dog will be seen in the favorite list. 
+* The user is also able to remove the like from the favorite list.
+* The user can also add a dog to the database. 
+* And delete a dog from the database. 
 
 ## Installation
 
-### Clone my project? 
+### 💻 Clone my project? 
+If you are interested in cloning my project, go to a file with the terminal and do the following: 
 
-1. Clone my project
+1. Clone my repository:
 ```
 git clone https://github.com/hanarchives/bloktech
 ```
-2. Install NPM
+2. To run this application you need to install some packages. The first one is: NPM
 ```
 npm install
 ```
-3. Nodemon
+3. Install Nodemon
 ```
 nodemon index.js
 ```
@@ -25,7 +34,7 @@ nodemon index.js
 Go to localhost:3000 in your browser
 ```
 
-### Install Node
+### 🖱️ Install Node
 1.  Copy and past the following line in your terminal:
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
@@ -39,12 +48,36 @@ nvm install stable
 node -v # 
 npm -v # 
 ```
+## ⚙️ I used the following building blocks
+* HTML (EJS)
+* CSS
+* Javascript
+* Node.js
+* Express.js
+* MongoDB
+* Multer 
+* dotenv
+* esLint
 
-## Database
+### ⚙️ .env
+Don't forget to have an .env file with the following: 
+```
+PORT= <number>
+DB_HOST= <host url>
+DB_NAME= <datebase name>
+DB_USERNAME= <username>
+DB_PASS= <password>
 
-## Documentation
-Chouckout my wiki for full doumentation and research
+```
 
-## License
+## 🗃️ Database
+I worked with MongoDB for my database. If you want to read more about my database and the structure please read [application](https://github.com/HanArchives/bloktech/wiki//structure) and [database](https://github.com/HanArchives/bloktech/wiki//database) structure in my wiki.  
+## 📚 Documentation
+Checkout my [wiki](https://github.com/HanArchives/bloktech/wiki) for full doumentation and research I did for this project. 
 
-## Contact me
+## ❗ License
+This repository is licensed with [MIT](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt). According to GitHub it's: A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
+
+## 📧 Contact me
+* Name: Han Ossef
+* Portfolio: [Han Archives](https://hanarchives.github.io/portfolio/)
