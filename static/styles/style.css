@@ -38,7 +38,7 @@
     --color-primary: #000;
     --color-secondary: #fff;
     --color-menu: #2a2b2b;
-    --bg-color-solid: #000000;
+    --bg-color-solid: #00327d;
     --color-h1: #2596be;
   }
 }
@@ -673,6 +673,24 @@ a:hover {
   filter: blur(8px);
 }
 
+/********************/
+/* POM ANIMATION API*/
+/********************/
+.pom {
+  color: #4169e1;
+  width: 6rem;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform-origin: 0 0;
+  transform: rotate(0) translate3D(-50%, -50%, 0);
+  will-change: transform, color;
+}
+
+path {
+  fill: currentColor;
+}
+
 /*********/
 /* Media */
 /*********/
@@ -690,7 +708,7 @@ a:hover {
   }
 }
 
-@media (min-width: 40em) {
+@media (min-width: 45em) {
   .nav-buttons {
     align-items: flex-start;
     display: flex;
