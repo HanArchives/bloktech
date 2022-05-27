@@ -30,7 +30,7 @@
   --color-h1: #000;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --color-primary: #000;
     --color-secondary: #fff;
@@ -38,7 +38,7 @@
     --bg-color-solid: #000000;
     --color-h1: #2596be;
   }
-}
+} */
 
 /*****************/
 /* CODE FOR BODY */
@@ -263,7 +263,7 @@ form p {
   text-align: center;
 }
 
-/* Hide the next buttons // .btn-submit  maybe */
+/* Hide the next buttons */
 .btn-next-1,
 .btn-next-2 {
   background-color: var(--bg-color-next-button);
