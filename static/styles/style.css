@@ -655,6 +655,11 @@ a:hover {
   width: auto;
 }
 
+.fallback-image {
+  height: auto;
+  width: 30%;
+}
+
 /**********/
 /* pop up */
 /**********/
