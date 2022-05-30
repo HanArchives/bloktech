@@ -6,12 +6,9 @@ const selectAllButtonTwo = document.querySelector('.select-all-two');
 const selectAllButtonThree = document.querySelector('.select-all-three');
 
 function checkAll(selector) {
-  // variabel checboxes heeft parameter selector. Dus selecteerd alles
   const checkboxes = document.querySelectorAll(selector);
   for (const checkbox of checkboxes) {
     checkbox.checked = !this.checked;
-    //! betekend het omgekeerde van true/false dit zorgt ervoor dat het allemaal selecteerd en deselecteerd
-    //checkbox.checked = !checkbox.checked;
   }
 }
 
@@ -56,8 +53,6 @@ buttonNextQuestionSize.addEventListener('click', () => {
   questionThree.scrollIntoView({ behavior: 'smooth' });
 });
 
-// hide question 2 and 3 (add class) if js is on
-// asynch multiple task at the same time / synch per task
 function hideSections() {
   questionTwo.classList.add('hide');
   questionThree.classList.add('hide');

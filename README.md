@@ -6,6 +6,7 @@ This school project is about building a feature for a matching application that 
 OBS: Just know that it isn't a complete matching application but just a feature/part of an application. 
 
 ### Concept and Feature 🐶
+<img src="/static/img/process/size.png" alt="PawDoption" width="100%" height="auto">
 My concept is about users that want to adopt a dog based on their preferences. 
 * My main focus is filtering. The user can check some questions and based on the answers there will be a list of dogs that match the user preferences. * The user can also like a dog. The liked dog will be seen in the favorite list. 
 * The user is also able to remove the like from the favorite list.
@@ -59,17 +60,6 @@ npm -v #
 * dotenv
 * esLint
 
-### ⚙️ .env
-Don't forget to have an .env file with the following: 
-```
-PORT= <number>
-DB_HOST= <host url>
-DB_NAME= <datebase name>
-DB_USERNAME= <username>
-DB_PASS= <password>
-
-```
-
 ### ✅ Start
 Congratulations! The last step to run this application is to run the following line in your terminal:
 ```
@@ -84,6 +74,8 @@ Checkout my [wiki](https://github.com/HanArchives/bloktech/wiki) for full doumen
 ## ❗ License
 This repository is licensed with [MIT](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt). According to GitHub it's: A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
+<img src="/static/img/process/paws1.png" alt="PawDoption" width="100%" height="auto">
+
 ## 📧 Contact me
-* Name: Han Ossef
+* Name: Han O.
 * Portfolio: [Han Archives](https://hanarchives.github.io/portfolio/)
