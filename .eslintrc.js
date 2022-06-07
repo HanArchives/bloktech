@@ -17,5 +17,6 @@ module.exports = {
     indent: ['off', 'tab'],
     'no-unused-vars': ['off', { vars: 'local' }],
     'no-useless-catch': ['off'],
+    'no-undef': ['off'],
   },
 };

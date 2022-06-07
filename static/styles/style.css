@@ -270,6 +270,36 @@ textarea {
   font-family: 'spoof', Arial, Helvetica, sans-serif;
 }
 
+.login,
+.register {
+  align-items: center;
+  background: rgb(251, 251, 242);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.login form p a {
+  background-color: none;
+}
+
+.register {
+  padding-bottom: 1rem;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='number'] {
+  /* background-color: red; */
+  display: block;
+  font-family: 'spoof', Arial, Helvetica, sans-serif;
+  height: 2rem;
+  margin-bottom: 1rem;
+  width: 60%;
+}
+
 /*********************************************/
 /* code for adopt a doggo/questionnaire form */
 /*********************************************/
